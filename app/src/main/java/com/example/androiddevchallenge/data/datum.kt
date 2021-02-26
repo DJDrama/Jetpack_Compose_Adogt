@@ -4,6 +4,18 @@ import com.example.androiddevchallenge.data.model.Adaptability
 import com.example.androiddevchallenge.data.model.DogItem
 
 
+val UNKNOWN_DOG_ITEM =
+    DogItem(
+    name = "Unkown",
+    image = "",
+    Adaptability(
+        adatpsWellToApartmentLiving = 0,
+        goodForNoviceOwners = 0,
+        sensitivityLevel = 0,
+        toleratesBeingAlone = 0,
+        toleratesColdWeather = 0,
+        toleratesHotWeather = 0
+    ))
 
 val dogsList = mutableListOf(
     DogItem(

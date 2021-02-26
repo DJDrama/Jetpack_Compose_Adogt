@@ -81,6 +81,7 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
 
+
 //    // Jetpack Compose Additional
 //    implementation "androidx.compose.foundation:foundation:1.0.0-beta1"
 

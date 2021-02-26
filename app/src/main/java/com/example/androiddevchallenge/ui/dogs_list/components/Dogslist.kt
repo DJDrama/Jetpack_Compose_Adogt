@@ -19,7 +19,7 @@ fun DogsList(
             DogCard(
                 dogItem = dogItem,
                 onClick = {
-                    val navRoute = ScreenIdentifier.DogDetailScreen.identifier + "/${dogItem.name}"
+                    val navRoute = ScreenIdentifier.DogDetailScreen.route + "/${dogItem.name}"
                     onNavigateToDogDetailScreen(navRoute)
                 }
             )
