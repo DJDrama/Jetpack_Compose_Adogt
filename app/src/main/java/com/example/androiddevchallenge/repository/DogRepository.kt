@@ -12,8 +12,6 @@ class DogRepository {
         val res = dogsList.find {
             it.name == dogName
         }
-        return res?.let{
-            it
-        } ?: UNKNOWN_DOG_ITEM
+        return res ?: UNKNOWN_DOG_ITEM
     }
 }

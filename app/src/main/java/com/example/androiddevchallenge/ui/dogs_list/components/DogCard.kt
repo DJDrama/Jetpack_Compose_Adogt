@@ -1,5 +1,6 @@
 package com.example.androiddevchallenge.ui.dogs_list.components
 
+import android.app.SharedElementCallback
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*

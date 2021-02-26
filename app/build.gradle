@@ -42,6 +42,11 @@ android {
         jvmTarget = "1.8"
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
     buildFeatures {
         compose true
 
@@ -54,6 +59,7 @@ android {
     }
 
     composeOptions {
+        kotlinCompilerVersion kotlin_version
         kotlinCompilerExtensionVersion compose_version
     }
 
@@ -82,8 +88,6 @@ dependencies {
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
 
 
-//    // Jetpack Compose Additional
-//    implementation "androidx.compose.foundation:foundation:1.0.0-beta1"
 
     // Jetpack Compose Navigation
     def jetpack_compose_navigation_version = '1.0.0-alpha08'
