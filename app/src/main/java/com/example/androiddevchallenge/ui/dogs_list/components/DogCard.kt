@@ -19,6 +19,7 @@ import androidx.compose.ui.unit.dp
 import com.example.androiddevchallenge.data.model.DogItem
 import com.example.androiddevchallenge.util.loadPictureFromNetwork
 import com.example.androiddevchallenge.R
+import com.example.androiddevchallenge.ui.theme.blackAlpha
 
 @Composable
 fun DogCard(dogItem: DogItem, onClick: () -> Unit) {
@@ -41,7 +42,7 @@ fun DogCard(dogItem: DogItem, onClick: () -> Unit) {
 
                 Surface(
                     modifier = Modifier.fillMaxWidth().align(Alignment.BottomCenter),
-                    color = Color(0xFF70000000),
+                    color = blackAlpha,
                 ) {
 
                     val resource = painterResource(id = R.drawable.ic_baseline_keyboard_arrow_right_24)

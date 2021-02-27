@@ -4,11 +4,10 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.runtime.Composable
 import com.example.androiddevchallenge.data.model.DogItem
-import com.example.androiddevchallenge.ui.navigation.ScreenIdentifier
+import com.example.androiddevchallenge.ui.navigation.ScreenRoute
 
 @Composable
 fun DogsList(
-    loading: Boolean,
     dogItems: List<DogItem>,
     onNavigateToDogDetailScreen: (String) -> Unit
 ){
@@ -19,7 +18,7 @@ fun DogsList(
             DogCard(
                 dogItem = dogItem,
                 onClick = {
-                    val navRoute = ScreenIdentifier.DogDetailScreen.route + "/${dogItem.name}"
+                    val navRoute = ScreenRoute.DogDetailScreen.route + "/${dogItem.name}"
                     onNavigateToDogDetailScreen(navRoute)
                 }
             )

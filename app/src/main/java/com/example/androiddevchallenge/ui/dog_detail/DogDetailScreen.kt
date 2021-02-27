@@ -20,35 +20,40 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.androiddevchallenge.data.UNKNOWN_DOG_ITEM
 import com.example.androiddevchallenge.data.model.DogItem
+import com.example.androiddevchallenge.ui.theme.MyTheme
 import com.example.androiddevchallenge.util.loadPictureFromNetwork
 
 @Composable
 fun DogDetailScreen(
     viewModel: DogDetailViewModel,
     dogName: String,
-    upPress: () -> Unit
+    upPress: () -> Unit,
+    darkTheme: Boolean
 ) {
-
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = { Text("Back to List") },
-                navigationIcon = {
-                    IconButton(onClick = upPress) {
-                        Icon(
-                            imageVector = Icons.Filled.ArrowBack,
-                            contentDescription = "Back to List"
-                        )
-                    }
-                }
-            )
-        }
+    MyTheme(
+        darkTheme = darkTheme
     ) {
-        if(dogName == UNKNOWN_DOG_ITEM.name){
-            // Unknown Error
+        Scaffold(
+            topBar = {
+                TopAppBar(
+                    title = { Text("Back to List") },
+                    navigationIcon = {
+                        IconButton(onClick = upPress) {
+                            Icon(
+                                imageVector = Icons.Filled.ArrowBack,
+                                contentDescription = "Back to List"
+                            )
+                        }
+                    }
+                )
+            }
+        ) {
+            if (dogName == UNKNOWN_DOG_ITEM.name) {
+                // Unknown Error
 
-        }else {
-            DogDetailScrollableColumn(viewModel, dogName)
+            } else {
+                DogDetailScrollableColumn(viewModel, dogName)
+            }
         }
     }
 }
