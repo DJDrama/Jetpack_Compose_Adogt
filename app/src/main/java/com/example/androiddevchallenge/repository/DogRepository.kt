@@ -24,7 +24,7 @@ import kotlinx.coroutines.flow.flow
 
 class DogRepository {
     fun getAllDogItems(): Flow<List<DogItem>> = flow {
-        delay(1000)
+        delay(1500)
         emit(dogsList)
     }
 

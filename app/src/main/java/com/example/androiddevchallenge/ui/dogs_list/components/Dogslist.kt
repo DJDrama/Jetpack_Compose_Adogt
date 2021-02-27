@@ -18,6 +18,8 @@ package com.example.androiddevchallenge.ui.dogs_list.components
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.FastOutSlowInEasing
+import androidx.compose.animation.core.LinearEasing
+import androidx.compose.animation.core.repeatable
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -50,19 +52,7 @@ fun DogsList(
 ) {
     Box {
         if (isLoading) {
-            Column(
-                modifier = Modifier.fillMaxSize(),
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                Image(
-                    painter = painterResource(id = R.drawable.logo),
-                    contentDescription = "Logo"
-                )
-                Text(
-                    text = "Loading..."
-                )
-            }
+            LoadingAnimation()
         } else {
             LazyColumn {
                 itemsIndexed(
@@ -77,6 +67,40 @@ fun DogsList(
                 )
             }
         }
+    }
+}
+
+@Composable
+fun LoadingAnimation() {
+    val animatedProgress = remember { Animatable(initialValue = 0f) }
+    LaunchedEffect(Unit) {
+        animatedProgress.animateTo(
+            targetValue = 360f,
+            animationSpec = repeatable(
+                iterations = 10000,
+                animation = tween(
+                    durationMillis = 500, easing = LinearEasing
+                )
+            )
+        )
+    }
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Image(
+            painter = painterResource(id = R.drawable.logo),
+            contentDescription = null,
+            modifier = Modifier
+                .graphicsLayer(
+                    rotationY = animatedProgress.value
+                )
+        )
+        Text(
+            text = "Loading...",
+            modifier = Modifier.padding(top = 8.dp)
+        )
     }
 }
 
