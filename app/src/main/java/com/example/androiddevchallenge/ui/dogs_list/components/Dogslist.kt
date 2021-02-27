@@ -129,7 +129,7 @@ fun LoadingAnimation() {
 
 @Composable
 fun AnimatedListItem(dogItem: DogItem, index: Int, onNavigateToDogDetailScreen: (String) -> Unit) {
-    val animatedProgress = remember { Animatable(initialValue = 300f) }
+    val animatedProgress = remember { Animatable(initialValue = -300f) }
     LaunchedEffect(Unit) {
         animatedProgress.animateTo(
             targetValue = 0f,
