@@ -9,6 +9,7 @@
 <!--- Describe your app in one or two sentences -->
 Dog Adoption App made with Jetpack Compose Beta using MVVM Architecture.
 Sources from ("https://dogtime.com/dog-breeds")
+Glide not properly working on emulators, but working well on real devices.
 
 
 ## :bulb: Motivation and Context
