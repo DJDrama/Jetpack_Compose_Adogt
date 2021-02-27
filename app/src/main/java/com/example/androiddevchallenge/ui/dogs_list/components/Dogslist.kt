@@ -72,18 +72,34 @@ fun DogsList(
 
 @Composable
 fun LoadingAnimation() {
-    val animatedProgress = remember { Animatable(initialValue = 0f) }
+    // Logo Anim
+    val logoAnimatedProgress = remember { Animatable(initialValue = 0f) }
     LaunchedEffect(Unit) {
-        animatedProgress.animateTo(
+        logoAnimatedProgress.animateTo(
             targetValue = 360f,
             animationSpec = repeatable(
-                iterations = 10000,
+                iterations = 100,
                 animation = tween(
                     durationMillis = 500, easing = LinearEasing
                 )
             )
         )
     }
+
+    // Text Anim
+    val textAnimatedProgress = remember { Animatable(initialValue = 0f) }
+    LaunchedEffect(Unit) {
+        textAnimatedProgress.animateTo(
+            targetValue = 3f,
+            animationSpec = repeatable(
+                iterations = 100,
+                animation = tween(
+                    durationMillis = 1000, easing = LinearEasing
+                )
+            )
+        )
+    }
+
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -94,11 +110,18 @@ fun LoadingAnimation() {
             contentDescription = null,
             modifier = Modifier
                 .graphicsLayer(
-                    rotationY = animatedProgress.value
+                    rotationY = logoAnimatedProgress.value
                 )
         )
         Text(
-            text = "Loading...",
+            text = "Loading${
+                when (textAnimatedProgress.value.toInt()) {
+                    0 -> "."
+                    1 -> ".."
+                    2 -> "..."
+                    else -> "."
+                }
+            }",
             modifier = Modifier.padding(top = 8.dp)
         )
     }
