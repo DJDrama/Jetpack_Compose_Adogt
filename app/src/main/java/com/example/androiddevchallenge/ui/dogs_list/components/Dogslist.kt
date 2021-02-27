@@ -16,7 +16,7 @@
 package com.example.androiddevchallenge.ui.dogs_list.components
 
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import com.example.androiddevchallenge.data.model.DogItem
 import com.example.androiddevchallenge.ui.navigation.ScreenRoute
@@ -27,9 +27,7 @@ fun DogsList(
     onNavigateToDogDetailScreen: (String) -> Unit
 ) {
     LazyColumn {
-        itemsIndexed(
-            items = dogItems
-        ) { index, dogItem ->
+        items(items = dogItems) { dogItem ->
             DogCard(
                 dogItem = dogItem,
                 onClick = {
