@@ -8,7 +8,7 @@
 ## :scroll: Description
 <!--- Describe your app in one or two sentences -->
 Dog Adoption App made with Jetpack Compose Beta using MVVM Architecture.
-Sources from ("https://dogtime.com/dog-breeds")
+Sources from "https://dogtime.com/dog-breeds"
 
 
 ## :bulb: Motivation and Context

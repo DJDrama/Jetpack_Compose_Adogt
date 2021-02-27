@@ -54,7 +54,7 @@ fun DogCard(dogItem: DogItem, onClick: () -> Unit) {
                 image?.let { img ->
                     Image(
                         bitmap = img.asImageBitmap(),
-                        contentDescription = "Dog Image",
+                        contentDescription = "Dog Image ${dogItem.name}",
                         modifier = Modifier.fillMaxWidth().height(200.dp),
                         contentScale = ContentScale.Crop
                     )
