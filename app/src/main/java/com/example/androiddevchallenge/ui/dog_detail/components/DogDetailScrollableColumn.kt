@@ -1,7 +1,30 @@
+/*
+ * Copyright 2021 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.example.androiddevchallenge.ui.dog_detail.components
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material.Button
@@ -60,7 +83,6 @@ fun DogDetailScrollableColumn(
 
                 DogAdaptability(dogItem = dogItem)
 
-
                 val sourceStr = dogItem.source
                 val sourceText = buildAnnotatedString {
                     append(sourceStr)
@@ -102,11 +124,12 @@ fun DogDetailScrollableColumn(
                     )
                 }
 
-                Button(modifier = Modifier.align(Alignment.CenterHorizontally)
-                    .padding(bottom = 32.dp),
+                Button(
+                    modifier = Modifier.align(Alignment.CenterHorizontally)
+                        .padding(bottom = 32.dp),
                     onClick = {
-
-                    }) {
+                    }
+                ) {
                     Text("Adopt ${dogItem.name}")
                 }
             }

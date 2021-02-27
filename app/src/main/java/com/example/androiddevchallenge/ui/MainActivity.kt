@@ -22,9 +22,6 @@ import com.example.androiddevchallenge.datastore.DataStoreImpl
 import com.example.androiddevchallenge.ui.navigation.NavGraph
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
-import android.util.Log
-
-
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -34,7 +31,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-           NavGraph(dataStore = dataStore)
+            NavGraph(dataStore = dataStore)
         }
     }
 }
