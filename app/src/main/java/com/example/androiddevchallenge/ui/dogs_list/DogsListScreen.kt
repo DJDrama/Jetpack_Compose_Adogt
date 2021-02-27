@@ -15,6 +15,7 @@
  */
 package com.example.androiddevchallenge.ui.dogs_list
 
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
@@ -39,6 +40,7 @@ import com.example.androiddevchallenge.R
 import com.example.androiddevchallenge.ui.dogs_list.components.DogsList
 import com.example.androiddevchallenge.ui.theme.MyTheme
 
+@ExperimentalAnimationApi
 @Composable
 fun DogsListScreen(
     viewModel: DogsListViewModel,
@@ -46,6 +48,9 @@ fun DogsListScreen(
     darkTheme: Boolean,
     onToggleTheme: () -> Unit
 ) {
+    val isLoading = viewModel.loading.value
+    val dogs = viewModel.dogs.value
+
     MyTheme(
         darkTheme = darkTheme
     ) {
@@ -55,6 +60,7 @@ fun DogsListScreen(
                     title = {
                         Row {
                             Image(
+                                modifier = Modifier.padding(top = 8.dp, bottom = 8.dp),
                                 painter = painterResource(R.drawable.logo),
                                 contentDescription = null
                             )
@@ -88,11 +94,12 @@ fun DogsListScreen(
                 )
             }
         ) {
-            val dogs = viewModel.dogs
-            DogsList(
-                dogItems = dogs.value,
-                onNavigateToDogDetailScreen = onNavigateToDogDetailScreen
-            )
+                DogsList(
+                    isLoading = isLoading,
+                    dogItems = dogs,
+                    onNavigateToDogDetailScreen = onNavigateToDogDetailScreen
+                )
+
         }
     }
 }

@@ -19,9 +19,12 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.androiddevchallenge.data.model.DogItem
 import com.example.androiddevchallenge.repository.DogRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
 @HiltViewModel
@@ -35,11 +38,19 @@ constructor(
     val dogs: State<List<DogItem>>
         get() = _dogs
 
+    private val _loading = mutableStateOf(false)
+    val loading: State<Boolean>
+        get() = _loading
+
     init {
         retrieveDogItems()
     }
 
     private fun retrieveDogItems() {
-        _dogs.value = repository.getAllDogItems()
+        _loading.value = true
+        repository.getAllDogItems().onEach {
+            _dogs.value = it
+            _loading.value = false
+        }.launchIn(viewModelScope)
     }
 }

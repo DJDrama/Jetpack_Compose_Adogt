@@ -87,6 +87,7 @@ dependencies {
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
 
 
+    implementation "androidx.compose.animation:animation:$compose_version"
 
     // Jetpack Compose Navigation
     def jetpack_compose_navigation_version = '1.0.0-alpha08'

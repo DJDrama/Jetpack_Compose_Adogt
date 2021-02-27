@@ -15,6 +15,7 @@
  */
 package com.example.androiddevchallenge.ui.navigation
 
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
@@ -33,6 +34,7 @@ import com.example.androiddevchallenge.ui.dog_detail.DogDetailViewModel
 import com.example.androiddevchallenge.ui.dogs_list.DogsListScreen
 import com.example.androiddevchallenge.ui.dogs_list.DogsListViewModel
 
+@ExperimentalAnimationApi
 @Composable
 fun NavGraph(
     startDestination: String = ScreenRoute.DogsListScreen.route,

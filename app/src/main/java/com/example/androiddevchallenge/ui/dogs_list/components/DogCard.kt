@@ -42,10 +42,14 @@ import com.example.androiddevchallenge.ui.theme.blackAlpha
 import com.example.androiddevchallenge.util.loadPictureFromNetwork
 
 @Composable
-fun DogCard(dogItem: DogItem, onClick: () -> Unit) {
+fun DogCard(
+    modifier: Modifier,
+    dogItem: DogItem,
+    onClick: () -> Unit
+) {
     Card(
         shape = MaterialTheme.shapes.small,
-        modifier = Modifier.fillMaxWidth().padding(8.dp).clickable(onClick = onClick),
+        modifier = modifier.clickable(onClick = onClick),
         elevation = 8.dp
     ) {
         Column {

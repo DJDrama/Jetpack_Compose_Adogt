@@ -15,26 +15,93 @@
  */
 package com.example.androiddevchallenge.ui.dogs_list.components
 
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.core.FastOutSlowInEasing
+import androidx.compose.animation.core.tween
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
+import com.example.androiddevchallenge.R
 import com.example.androiddevchallenge.data.model.DogItem
 import com.example.androiddevchallenge.ui.navigation.ScreenRoute
 
+@ExperimentalAnimationApi
 @Composable
 fun DogsList(
+    isLoading: Boolean,
     dogItems: List<DogItem>,
     onNavigateToDogDetailScreen: (String) -> Unit
 ) {
-    LazyColumn {
-        items(items = dogItems) { dogItem ->
-            DogCard(
-                dogItem = dogItem,
-                onClick = {
-                    val navRoute = ScreenRoute.DogDetailScreen.route + "/${dogItem.name}"
-                    onNavigateToDogDetailScreen(navRoute)
-                }
-            )
+    Box {
+        if (isLoading) {
+            Column(
+                modifier = Modifier.fillMaxSize(),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.logo),
+                    contentDescription = "Logo"
+                )
+                Text(
+                    text = "Loading..."
+                )
+            }
+        } else {
+            LazyColumn {
+                itemsIndexed(
+                    items = dogItems,
+                    itemContent = { index, dogItem ->
+                        AnimatedListItem(
+                            dogItem = dogItem,
+                            index = index,
+                            onNavigateToDogDetailScreen = onNavigateToDogDetailScreen
+                        )
+                    }
+                )
+            }
         }
     }
+}
+
+@Composable
+fun AnimatedListItem(dogItem: DogItem, index: Int, onNavigateToDogDetailScreen: (String) -> Unit) {
+    val animatedProgress = remember { Animatable(initialValue = 300f) }
+    LaunchedEffect(Unit) {
+        animatedProgress.animateTo(
+            targetValue = 0f,
+            animationSpec = tween(300, easing = FastOutSlowInEasing)
+        )
+    }
+    val topPadding = if (index == 0) 16.dp else 8.dp
+
+    val animatedModifier = Modifier
+        .graphicsLayer(translationX = animatedProgress.value)
+        .fillMaxWidth()
+        .padding(start = 8.dp, end = 8.dp, top = topPadding, bottom = 8.dp)
+
+    DogCard(
+        modifier = animatedModifier,
+        dogItem = dogItem,
+        onClick = {
+            val navRoute = ScreenRoute.DogDetailScreen.route + "/${dogItem.name}"
+            onNavigateToDogDetailScreen(navRoute)
+        }
+    )
 }

@@ -18,11 +18,16 @@ package com.example.androiddevchallenge.repository
 import com.example.androiddevchallenge.data.UNKNOWN_DOG_ITEM
 import com.example.androiddevchallenge.data.dogsList
 import com.example.androiddevchallenge.data.model.DogItem
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 
 class DogRepository {
-    fun getAllDogItems(): List<DogItem> {
-        return dogsList
+    fun getAllDogItems(): Flow<List<DogItem>> = flow {
+        delay(1000)
+        emit(dogsList)
     }
+
     fun getDogItem(dogName: String): DogItem {
         val res = dogsList.find {
             it.name == dogName

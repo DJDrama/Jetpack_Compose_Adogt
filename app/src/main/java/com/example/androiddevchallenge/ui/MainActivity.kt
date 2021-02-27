@@ -18,12 +18,14 @@ package com.example.androiddevchallenge.ui
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.animation.ExperimentalAnimationApi
 import com.example.androiddevchallenge.datastore.DataStoreImpl
 import com.example.androiddevchallenge.ui.navigation.NavGraph
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
+@ExperimentalAnimationApi
 class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var dataStore: DataStoreImpl
