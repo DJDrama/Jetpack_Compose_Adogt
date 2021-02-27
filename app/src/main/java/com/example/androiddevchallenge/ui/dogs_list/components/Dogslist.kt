@@ -115,12 +115,12 @@ fun LoadingAnimation() {
         )
         Text(
             text = "Loading${
-                when (textAnimatedProgress.value.toInt()) {
-                    0 -> "."
-                    1 -> ".."
-                    2 -> "..."
-                    else -> "."
-                }
+            when (textAnimatedProgress.value.toInt()) {
+                0 -> "."
+                1 -> ".."
+                2 -> "..."
+                else -> "."
+            }
             }",
             modifier = Modifier.padding(top = 8.dp)
         )

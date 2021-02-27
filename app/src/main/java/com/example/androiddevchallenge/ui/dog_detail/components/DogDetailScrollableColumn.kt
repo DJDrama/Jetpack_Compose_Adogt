@@ -69,7 +69,6 @@ fun DogDetailScrollableColumn(
                     )
                 }
 
-
                 DogAdaptability(dogItem = dogItem)
 
                 Text(

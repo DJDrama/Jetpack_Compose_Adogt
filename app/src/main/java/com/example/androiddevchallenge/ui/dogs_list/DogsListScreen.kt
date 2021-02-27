@@ -94,12 +94,11 @@ fun DogsListScreen(
                 )
             }
         ) {
-                DogsList(
-                    isLoading = isLoading,
-                    dogItems = dogs,
-                    onNavigateToDogDetailScreen = onNavigateToDogDetailScreen
-                )
-
+            DogsList(
+                isLoading = isLoading,
+                dogItems = dogs,
+                onNavigateToDogDetailScreen = onNavigateToDogDetailScreen
+            )
         }
     }
 }

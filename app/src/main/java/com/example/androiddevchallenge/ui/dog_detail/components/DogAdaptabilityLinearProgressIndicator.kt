@@ -37,7 +37,7 @@ fun DogAdaptabilityLinearProgressIndicator(level: Int) {
     val xStart = remember { Animatable(0f) }
     val xTarget = (level / 10.toFloat()) * 2
 
-    LaunchedEffect(Unit){
+    LaunchedEffect(Unit) {
         xStart.animateTo(
             targetValue = xTarget,
             animationSpec = tween(

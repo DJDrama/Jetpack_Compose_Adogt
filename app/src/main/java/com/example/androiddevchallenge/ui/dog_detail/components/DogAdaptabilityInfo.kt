@@ -34,7 +34,7 @@ fun DogAdaptabilityInfo(title: String, level: Int) {
     Row(Modifier.padding(8.dp)) {
         Text(
             text = title,
-            style = TextStyle(fontSize = 16.sp, fontWeight = if(level==5) FontWeight.Bold else null),
+            style = TextStyle(fontSize = 16.sp, fontWeight = if (level == 5) FontWeight.Bold else null),
             modifier = Modifier.wrapContentWidth()
         )
 
