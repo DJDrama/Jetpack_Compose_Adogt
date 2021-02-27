@@ -1,4 +1,4 @@
-# Put title of your app here
+# Adogt
 
 <!--- Replace <OWNER> with your Github Username and <REPOSITORY> with the name of your repository. -->
 <!--- You can find both of these in the url bar when you open your repository in github. -->
@@ -7,11 +7,15 @@
 
 ## :scroll: Description
 <!--- Describe your app in one or two sentences -->
+Dog Adoption App made with Jetpack Compose Beta using MVVM Architecture.
+Sources from ("https://dogtime.com/dog-breeds")
 
 
 ## :bulb: Motivation and Context
 <!--- Optionally point readers to interesting parts of your submission. -->
 <!--- What are you especially proud of? -->
+Interesting parts are, no need of xml layout files to draw a view, and very Jetpack Compose is highly intuitive.
+I am just proud that i've completed a Jetpack Compose single app, even though not sure i am doing right and well.
 
 
 ## :camera_flash: Screenshots
