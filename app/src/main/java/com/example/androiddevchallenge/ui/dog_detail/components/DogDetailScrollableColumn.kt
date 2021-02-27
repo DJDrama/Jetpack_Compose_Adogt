@@ -51,7 +51,6 @@ fun DogDetailScrollableColumn(
     viewModel: DogDetailViewModel,
     dogName: String
 ) {
-
     val uriHandler = LocalUriHandler.current
     LazyColumn(modifier = Modifier.fillMaxWidth()) {
         item {
@@ -60,28 +59,34 @@ fun DogDetailScrollableColumn(
             ) {
                 val dogItem = viewModel.getDogItem(dogName = dogName)
                 val image = loadPictureFromNetwork(url = dogItem.image).value
+
                 image?.let { img ->
                     Image(
                         bitmap = img.asImageBitmap(),
                         contentDescription = "Dog Image",
-                        modifier = Modifier.fillMaxWidth().height(250.dp),
+                        modifier = Modifier.fillMaxWidth().height(200.dp),
                         contentScale = ContentScale.Crop
                     )
                 }
 
+
+                DogAdaptability(dogItem = dogItem)
+
                 Text(
                     text = dogItem.name,
-                    modifier = Modifier.fillMaxWidth().padding(8.dp),
+                    modifier = Modifier.fillMaxWidth()
+                        .padding(
+                            horizontal = 8.dp, vertical = 16.dp
+                        ),
                     style = MaterialTheme.typography.h4
                 )
 
                 Text(
                     text = dogItem.desc,
-                    modifier = Modifier.fillMaxWidth().wrapContentHeight().padding(8.dp),
+                    modifier = Modifier.fillMaxWidth().wrapContentHeight()
+                        .padding(horizontal = 8.dp),
                     style = TextStyle(fontSize = 16.sp)
                 )
-
-                DogAdaptability(dogItem = dogItem)
 
                 val sourceStr = dogItem.source
                 val sourceText = buildAnnotatedString {

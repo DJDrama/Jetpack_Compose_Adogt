@@ -40,7 +40,7 @@ fun DogDetailScreen(
         Scaffold(
             topBar = {
                 TopAppBar(
-                    title = { Text("Back to List") },
+                    title = { Text("$dogName") },
                     navigationIcon = {
                         IconButton(onClick = upPress) {
                             Icon(

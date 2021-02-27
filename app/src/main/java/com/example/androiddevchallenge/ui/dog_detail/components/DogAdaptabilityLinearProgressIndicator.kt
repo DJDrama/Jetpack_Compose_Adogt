@@ -15,6 +15,9 @@
  */
 package com.example.androiddevchallenge.ui.dog_detail.components
 
+import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.core.FastOutSlowInEasing
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -22,24 +25,41 @@ import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.material.LinearProgressIndicator
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 @Composable
 fun DogAdaptabilityLinearProgressIndicator(level: Int) {
-    val maxValue = (level / 10.toFloat()) * 2
+    val xStart = remember { Animatable(0f) }
+    val xTarget = (level / 10.toFloat()) * 2
+
+    LaunchedEffect(Unit){
+        xStart.animateTo(
+            targetValue = xTarget,
+            animationSpec = tween(
+                durationMillis = 1500,
+                easing = FastOutSlowInEasing
+            )
+        )
+    }
 
     Row(modifier = Modifier.fillMaxWidth().padding(bottom = 8.dp)) {
         Text(
             text = "1",
+            style = TextStyle(fontSize = 14.sp),
             modifier = Modifier.wrapContentWidth().padding(start = 8.dp)
         )
         LinearProgressIndicator(
-            progress = maxValue,
+            progress = xStart.value,
             modifier = Modifier.weight(1f).padding(8.dp),
         )
         Text(
             text = "5",
+            style = TextStyle(fontSize = 14.sp),
             modifier = Modifier.wrapContentWidth().padding(end = 8.dp)
         )
     }
