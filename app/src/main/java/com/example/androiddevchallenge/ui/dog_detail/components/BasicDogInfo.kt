@@ -71,7 +71,7 @@ fun BasicDogInfo(dogItem: DogItem) {
         )
     }
 
-    Row(verticalAlignment = Alignment.Bottom, modifier = Modifier.padding(vertical = 8.dp)) {
+    Row(verticalAlignment = Alignment.Bottom, modifier = Modifier.padding(top = 8.dp)) {
         Icon(
             imageVector = Icons.Filled.Star,
             contentDescription = "Star Filled",

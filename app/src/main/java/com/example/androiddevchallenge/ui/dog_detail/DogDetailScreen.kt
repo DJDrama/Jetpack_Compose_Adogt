@@ -85,7 +85,7 @@ fun BoxTopSection(image: Bitmap?) {
         Image(
             bitmap = img.asImageBitmap(),
             contentDescription = "Dog Image",
-            modifier = Modifier.fillMaxWidth().height(250.dp),
+            modifier = Modifier.fillMaxWidth().height(350.dp),
             contentScale = ContentScale.Crop
         )
     }
@@ -96,7 +96,7 @@ fun TopSectionOverlay(scrollState: ScrollState) {
     val dynamicAlpha = ((scrollState.value.toFloat()) / 1000).coerceIn(0f, 1f)
     Box(
         modifier = Modifier.fillMaxWidth()
-            .height(250.dp)
+            .height(350.dp)
             .background(
                 MaterialTheme.colors.surface.copy(
                     alpha = animateFloatAsState(dynamicAlpha).value
@@ -108,7 +108,7 @@ fun TopSectionOverlay(scrollState: ScrollState) {
 @Composable
 fun BottomScrollableContent(scrollState: ScrollState, dogItem: DogItem) {
     Column(modifier = Modifier.verticalScroll(state = scrollState)) {
-        Spacer(modifier = Modifier.height(250.dp))
+        Spacer(modifier = Modifier.height(350.dp))
         Column(modifier = Modifier.background(Color.White).padding(horizontal = 8.dp)) {
             ScrollSection(dogItem = dogItem)
             Button(
@@ -140,7 +140,7 @@ fun AnimatedToolBar(name: String, scrollState: ScrollState, upPress: () -> Unit)
         modifier = Modifier
             .fillMaxWidth()
             .background(
-                if (Dp(scrollState.value.toFloat()) < 1080.dp)
+                if (Dp(scrollState.value.toFloat()) < 800.dp)
                     Color.Transparent else Color.White
             )
             .padding(horizontal = 8.dp, vertical = 4.dp)
