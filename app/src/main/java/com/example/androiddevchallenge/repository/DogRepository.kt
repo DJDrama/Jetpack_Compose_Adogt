@@ -28,9 +28,9 @@ class DogRepository {
         emit(dogsList)
     }
 
-    fun getDogItem(dogName: String): DogItem {
+    fun getDogItemByName(dogName: String): DogItem {
         val res = dogsList.find {
-            it.type == dogName
+            it.name == dogName
         }
         return res ?: UNKNOWN_DOG_ITEM
     }

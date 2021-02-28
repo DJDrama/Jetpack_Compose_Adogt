@@ -29,6 +29,6 @@ constructor(
 ) : ViewModel() {
 
     fun getDogItem(dogName: String): DogItem {
-        return repository.getDogItem(dogName)
+        return repository.getDogItemByName(dogName)
     }
 }

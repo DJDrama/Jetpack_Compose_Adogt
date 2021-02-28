@@ -24,28 +24,32 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentWidth
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.Card
+import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Star
+import androidx.compose.material.icons.outlined.LocationOn
+import androidx.compose.material.icons.outlined.StarBorder
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.androiddevchallenge.R
 import com.example.androiddevchallenge.data.model.DogItem
 import com.example.androiddevchallenge.ui.theme.blackAlpha
 import com.example.androiddevchallenge.ui.theme.lightGray
+import com.example.androiddevchallenge.ui.theme.orangeYellow
 import com.example.androiddevchallenge.util.loadPictureFromNetwork
 
 @Composable
@@ -65,7 +69,7 @@ fun DogCard(
                 image?.let { img ->
                     Image(
                         bitmap = img.asImageBitmap(),
-                        contentDescription = "Dog Image ${dogItem.type}",
+                        contentDescription = "Dog Image ${dogItem.name}",
                         modifier = Modifier.fillMaxWidth().height(250.dp),
                         contentScale = ContentScale.Crop
                     )
@@ -78,26 +82,26 @@ fun DogCard(
                     Row(
                         modifier = Modifier.fillMaxWidth()
                             .padding(8.dp),
+                        verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Image(
-                            painter = painterResource(id = R.drawable.ic_baseline_location_on),
-                            modifier = Modifier.wrapContentWidth().padding(4.dp),
-                            contentDescription = "Arrow Right"
+                        Icon(
+                            imageVector = Icons.Outlined.LocationOn,
+                            contentDescription = "Location",
+                            tint = Color.White,
+                            modifier = Modifier.size(16.dp)
                         )
                         Text(
                             text = dogItem.location,
-                            modifier = Modifier.align(Alignment.CenterVertically),
+                            modifier = Modifier.padding(start = 4.dp),
                             color = Color.White,
                             style = TextStyle(fontSize = 16.sp, fontWeight = FontWeight.Bold)
                         )
-
                     }
                 }
             }
             BasicInfo(name = dogItem.name, stars = dogItem.stars, type = dogItem.type)
             PriceInfo(dogItem.price)
             DogDescription(dogItem.desc)
-
         }
     }
 }
@@ -116,26 +120,31 @@ fun BasicInfo(name: String, stars: Int, type: String) {
     ) {
         val remainder = 5 - stars
         repeat(stars) {
-            Image(
-                painter = painterResource(id = R.drawable.ic_baseline_star_12),
-                contentDescription = "Star Filled"
+            Icon(
+                imageVector = Icons.Filled.Star,
+                contentDescription = "Star Filled",
+                tint = orangeYellow,
+                modifier = Modifier.size(20.dp)
             )
         }
         repeat(remainder) {
-            Image(
-                painter = painterResource(id = R.drawable.ic_baseline_star_border_12),
-                contentDescription = "Star Border"
+            Icon(
+                imageVector = Icons.Outlined.StarBorder,
+                contentDescription = "Star Border",
+                tint = orangeYellow,
+                modifier = Modifier.size(20.dp)
+
             )
         }
 
         Text(
             text = "$stars",
             style = TextStyle(fontSize = 16.sp, fontWeight = FontWeight.Bold),
-            modifier = Modifier.padding(start = 8.dp)
+            modifier = Modifier.padding(start = 4.dp)
         )
 
         Text(
-            text = "(${type})",
+            text = "($type)",
             color = Color.Gray,
             modifier = Modifier.padding(start = 8.dp)
         )

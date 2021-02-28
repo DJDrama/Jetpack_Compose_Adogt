@@ -15,17 +15,46 @@
  */
 package com.example.androiddevchallenge.ui.dog_detail
 
+import android.graphics.Bitmap
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.ScrollState
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.Button
+import androidx.compose.material.Divider
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
-import androidx.compose.material.Scaffold
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Share
 import androidx.compose.runtime.Composable
-import com.example.androiddevchallenge.data.UNKNOWN_DOG_ITEM
-import com.example.androiddevchallenge.ui.dog_detail.components.DogDetailScrollableColumn
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.asImageBitmap
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
+import com.example.androiddevchallenge.data.model.DogItem
+import com.example.androiddevchallenge.ui.dog_detail.components.BasicDogInfo
+import com.example.androiddevchallenge.ui.dog_detail.components.DogAdaptability
+import com.example.androiddevchallenge.ui.dog_detail.components.DogDescription
 import com.example.androiddevchallenge.ui.theme.MyTheme
+import com.example.androiddevchallenge.util.loadPictureFromNetwork
 
 @Composable
 fun DogDetailScreen(
@@ -34,29 +63,108 @@ fun DogDetailScreen(
     upPress: () -> Unit,
     darkTheme: Boolean
 ) {
+    val scrollState = rememberScrollState(0)
+    val dogItem = viewModel.getDogItem(dogName = dogName)
+    val image = loadPictureFromNetwork(url = dogItem.image).value
+
     MyTheme(
         darkTheme = darkTheme
     ) {
-        Scaffold(
-            topBar = {
-                TopAppBar(
-                    title = { Text("$dogName") },
-                    navigationIcon = {
-                        IconButton(onClick = upPress) {
-                            Icon(
-                                imageVector = Icons.Filled.ArrowBack,
-                                contentDescription = "Back to List"
-                            )
-                        }
-                    }
+        Box(modifier = Modifier.fillMaxSize().background(Color.White)) {
+            BoxTopSection(image)
+            TopSectionOverlay(scrollState = scrollState)
+            BottomScrollableContent(scrollState = scrollState, dogItem = dogItem)
+            AnimatedToolBar(name = dogItem.name, scrollState = scrollState, upPress = upPress)
+        }
+    }
+}
+
+@Composable
+fun BoxTopSection(image: Bitmap?) {
+    image?.let { img ->
+        Image(
+            bitmap = img.asImageBitmap(),
+            contentDescription = "Dog Image",
+            modifier = Modifier.fillMaxWidth().height(250.dp),
+            contentScale = ContentScale.Crop
+        )
+    }
+}
+
+@Composable
+fun TopSectionOverlay(scrollState: ScrollState) {
+    val dynamicAlpha = ((scrollState.value.toFloat()) / 1000).coerceIn(0f, 1f)
+    Box(
+        modifier = Modifier.fillMaxWidth()
+            .height(250.dp)
+            .background(
+                MaterialTheme.colors.surface.copy(
+                    alpha = animateFloatAsState(dynamicAlpha).value
                 )
-            }
-        ) {
-            if (dogName == UNKNOWN_DOG_ITEM.type) {
-                // Unknown Error
-            } else {
-                DogDetailScrollableColumn(viewModel, dogName)
+            )
+    )
+}
+
+@Composable
+fun BottomScrollableContent(scrollState: ScrollState, dogItem: DogItem) {
+    Column(modifier = Modifier.verticalScroll(state = scrollState)) {
+        Spacer(modifier = Modifier.height(250.dp))
+        Column(modifier = Modifier.background(Color.White).padding(horizontal = 8.dp)) {
+            ScrollSection(dogItem = dogItem)
+            Button(
+                modifier = Modifier.align(Alignment.CenterHorizontally),
+                onClick = {
+                }
+            ) {
+                Text("Adopt ${dogItem.name}")
             }
         }
+        Spacer(modifier = Modifier.height(32.dp))
+    }
+}
+
+@Composable
+fun ScrollSection(dogItem: DogItem) {
+    BasicDogInfo(dogItem = dogItem)
+    Divider(modifier = Modifier.padding(vertical = 8.dp))
+    DogAdaptability(dogItem = dogItem)
+    Divider(modifier = Modifier.padding(vertical = 8.dp))
+    DogDescription(dogItem = dogItem)
+}
+
+@Composable
+fun AnimatedToolBar(name: String, scrollState: ScrollState, upPress: () -> Unit) {
+    Row(
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(
+                if (Dp(scrollState.value.toFloat()) < 1080.dp)
+                    Color.Transparent else Color.White
+            )
+            .padding(horizontal = 8.dp, vertical = 4.dp)
+    ) {
+        IconButton(onClick = upPress) {
+            Icon(
+                imageVector = Icons.Filled.ArrowBack,
+                contentDescription = "Back to List",
+            )
+        }
+        Text(
+            text = name,
+            color = Color.Black,
+            modifier = Modifier
+                .padding(16.dp)
+                .alpha(
+                    ((scrollState.value + 0.001f) / 1000)
+                        .coerceIn(0f, 1f)
+                )
+        )
+
+        Icon(
+            imageVector = Icons.Filled.Share,
+            contentDescription = "Share",
+        )
     }
 }

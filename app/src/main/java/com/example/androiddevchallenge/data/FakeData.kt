@@ -22,8 +22,8 @@ val UNKNOWN_DOG_ITEM =
     DogItem(
         name = "Unknown",
         location = "Unknown",
-        stars=0,
-        price=0,
+        stars = 0,
+        price = 0,
         type = "Unknown",
         desc = "Unknown",
         image = "",
@@ -42,8 +42,8 @@ val dogsList = mutableListOf(
     DogItem(
         name = "Happy",
         location = "America",
-        stars=3,
-        price=250,
+        stars = 3,
+        price = 250,
         type = "Afador",
         desc = "The Afador is a mixed breed dog–a cross between the Afghan Hound and Labrador Retriever dog breeds. Loyal, energetic, and affectionate, these pups inherited some of the best qualities from both of their parents.\n" +
             "\n" +
@@ -66,8 +66,8 @@ val dogsList = mutableListOf(
     DogItem(
         name = "Jenny",
         location = "England",
-        stars=4,
-        price=400,
+        stars = 4,
+        price = 400,
         type = "Affenhuahua",
         desc = "The Affenhuahua is a mixed breed dog–a cross between the Chihuahua and Affenpinscher dog breeds. Petite, sassy, and highly energetic, these pups inherited some of the best traits from both of their parents.\n" +
             "\n" +
@@ -92,8 +92,8 @@ val dogsList = mutableListOf(
     DogItem(
         name = "Deejay",
         location = "Germany",
-        stars=3,
-        price=650,
+        stars = 3,
+        price = 650,
         type = "Affenpinscher",
         desc = "Dogs of the Affenpinscher breed were originally created to act as ratters in homes, stables, and shops. Bred down in size, they moved up in the world, becoming ladies’ companions. Today, they are happy, mischievous companion dogs.\n" +
             "\n" +
@@ -116,8 +116,8 @@ val dogsList = mutableListOf(
     DogItem(
         name = "Bestie",
         location = "Japan",
-        stars=4,
-        price=550,
+        stars = 4,
+        price = 550,
         type = "Basset Hound",
         desc = "The Basset Hound dog breed was bred for hunting small game such as rabbits and is still used for this purpose in some parts of the United States. When they’re not on the trail of a bunny, they’re laid-back family friends who love kids.\n" +
             "\n" +
@@ -142,8 +142,8 @@ val dogsList = mutableListOf(
     DogItem(
         name = "Caroline",
         location = "South Korea",
-        stars=3,
-        price=120,
+        stars = 3,
+        price = 120,
         type = "Carolina Dog",
         desc = "Indigenous to the United States, the Carolina Dog is a rare, primitive dog breed and relatively new to domesticity. They are medium in size, agile, and independent; they’re also known for being very clean dogs.\n" +
             "\n" +
@@ -170,8 +170,8 @@ val dogsList = mutableListOf(
     DogItem(
         name = "Sally",
         location = "Brazil",
-        stars=2,
-        price=600,
+        stars = 2,
+        price = 600,
         type = "Cavalier King Charles Spaniel",
         desc = "Although they’re born to be a companion, the Cavalier King Charles Spaniel dog breed retains the sporty nature of their spaniel ancestors. If they’re not sitting on a lap or getting a belly rub, nothing makes them happier than to flush a bird and then attempt to retrieve it.\n" +
             "\n" +
@@ -194,8 +194,8 @@ val dogsList = mutableListOf(
     DogItem(
         name = "Johnny",
         location = "Egypt",
-        stars=1,
-        price=500,
+        stars = 1,
+        price = 500,
         type = "Central Asian Shepherd Dog",
         desc = "The Central Asian Shepherd Dog is a big, strong, and independent dog breed. These purebred dogs go by several other names, including Central Asian Ovtcharka, Middle Asian Ovtcharka, and Mid-Asian Shepherd. One of the oldest breeds, these pups genetics can be traced back over 5,000 years.\n" +
             "\n" +
@@ -218,8 +218,8 @@ val dogsList = mutableListOf(
     DogItem(
         name = "Bts",
         location = "Argentina",
-        stars=3,
-        price=240,
+        stars = 3,
+        price = 240,
         type = "Dogo Argentino",
         desc = "The Dogo Argentino, sometimes called the Argentinian Mastiff or the Argentine Dogo, is a strong, athletic, and loyal breed. They can be both fierce hunters and gentle protectors of their humans. They have a high prey drive, a strong will, and, at times, a distrust of strangers and other animals, all of which require an experienced dog owner to handle the breed.\n" +
             "\n" +
@@ -243,8 +243,8 @@ val dogsList = mutableListOf(
     DogItem(
         name = "Gartner",
         location = "Mexico",
-        stars=5,
-        price=560,
+        stars = 5,
+        price = 560,
         type = "Doxiepoo",
         desc = "If you were the type of kid who wasn’t afraid to choose the “mystery” flavor of candy in a bag, a Dachshund Poodle — or Doxiepoo — may be for you. While this mixed breed can have famously endless combinations of traits, they are known for being affectionate, intelligent, and playful.\n" +
             "\n" +
@@ -267,8 +267,8 @@ val dogsList = mutableListOf(
     DogItem(
         name = "Oliver",
         location = "Netherlands",
-        stars=4,
-        price=720,
+        stars = 4,
+        price = 720,
         type = "Drentsche Patrijshond",
         desc = "The Drentsche Patrijshond is a purebred dog hailing from the Netherlands. Intelligent, loyal, and sensitive, these pups have some of the best qualities of any dog breed.\n" +
             "\n" +

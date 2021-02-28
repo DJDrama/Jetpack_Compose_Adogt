@@ -147,7 +147,7 @@ fun AnimatedListItem(dogItem: DogItem, index: Int, onNavigateToDogDetailScreen: 
         modifier = animatedModifier,
         dogItem = dogItem,
         onClick = {
-            val navRoute = ScreenRoute.DogDetailScreen.route + "/${dogItem.type}"
+            val navRoute = ScreenRoute.DogDetailScreen.route + "/${dogItem.name}"
             onNavigateToDogDetailScreen(navRoute)
         }
     )

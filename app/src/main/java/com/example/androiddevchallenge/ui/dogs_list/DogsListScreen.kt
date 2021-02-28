@@ -74,7 +74,7 @@ fun DogsListScreen(
                     actions = {
                         CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.medium) {
                             IconButton(
-                                onClick = { /* TODO: Open account? */ }
+                                onClick = { }
                             ) {
                                 Icon(
                                     imageVector = Icons.Filled.Search,
