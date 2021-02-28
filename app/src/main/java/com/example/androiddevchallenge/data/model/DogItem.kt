@@ -17,6 +17,10 @@ package com.example.androiddevchallenge.data.model
 
 data class DogItem(
     val name: String,
+    val location: String,
+    val stars: Int,
+    val price: Int,
+    val type: String,
     val desc: String,
     val image: String,
     val adaptability: Adaptability,

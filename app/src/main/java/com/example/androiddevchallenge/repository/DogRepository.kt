@@ -30,7 +30,7 @@ class DogRepository {
 
     fun getDogItem(dogName: String): DogItem {
         val res = dogsList.find {
-            it.name == dogName
+            it.type == dogName
         }
         return res ?: UNKNOWN_DOG_ITEM
     }

@@ -21,6 +21,10 @@ import com.example.androiddevchallenge.data.model.DogItem
 val UNKNOWN_DOG_ITEM =
     DogItem(
         name = "Unknown",
+        location = "Unknown",
+        stars=0,
+        price=0,
+        type = "Unknown",
         desc = "Unknown",
         image = "",
         Adaptability(
@@ -36,7 +40,11 @@ val UNKNOWN_DOG_ITEM =
 
 val dogsList = mutableListOf(
     DogItem(
-        name = "Afador",
+        name = "Happy",
+        location = "America",
+        stars=3,
+        price=250,
+        type = "Afador",
         desc = "The Afador is a mixed breed dog–a cross between the Afghan Hound and Labrador Retriever dog breeds. Loyal, energetic, and affectionate, these pups inherited some of the best qualities from both of their parents.\n" +
             "\n" +
             "Afadors are also sometimes known as the Afghan Lab. You can find these mixed breed dogs in shelters and breed specific rescues, so remember to always adopt! Don’t shop if you’re looking to add an Afador to your home!\n" +
@@ -56,7 +64,11 @@ val dogsList = mutableListOf(
         source = "https://dogtime.com/dog-breeds/afador"
     ),
     DogItem(
-        name = "Affenhuahua",
+        name = "Jenny",
+        location = "England",
+        stars=4,
+        price=400,
+        type = "Affenhuahua",
         desc = "The Affenhuahua is a mixed breed dog–a cross between the Chihuahua and Affenpinscher dog breeds. Petite, sassy, and highly energetic, these pups inherited some of the best traits from both of their parents.\n" +
             "\n" +
             "Affenhuahuas are also sometimes called Affen Chi. Despite their status as a designer breed, you can find these mixed breed dogs in shelters and rescues, so adopt! Don’t shop!\n" +
@@ -78,7 +90,11 @@ val dogsList = mutableListOf(
         source = "https://dogtime.com/dog-breeds/affenhuahua"
     ),
     DogItem(
-        name = "Affenpinscher",
+        name = "Deejay",
+        location = "Germany",
+        stars=3,
+        price=650,
+        type = "Affenpinscher",
         desc = "Dogs of the Affenpinscher breed were originally created to act as ratters in homes, stables, and shops. Bred down in size, they moved up in the world, becoming ladies’ companions. Today, they are happy, mischievous companion dogs.\n" +
             "\n" +
             "Although these are purebred dogs, you may still find them in shelters and rescues. Remember to adopt! Don’t shop if you want to bring a dog home.\n" +
@@ -98,7 +114,11 @@ val dogsList = mutableListOf(
         source = "https://dogtime.com/dog-breeds/Affenpinscher"
     ),
     DogItem(
-        name = "Basset Hound",
+        name = "Bestie",
+        location = "Japan",
+        stars=4,
+        price=550,
+        type = "Basset Hound",
         desc = "The Basset Hound dog breed was bred for hunting small game such as rabbits and is still used for this purpose in some parts of the United States. When they’re not on the trail of a bunny, they’re laid-back family friends who love kids.\n" +
             "\n" +
             "Although they’re purebred dogs, you may find Bassets in shelters or in the care of rescue groups. If this is the breed for you, opt to adopt if possible!\n" +
@@ -120,7 +140,11 @@ val dogsList = mutableListOf(
         source = "https://dogtime.com/dog-breeds/basset-hound"
     ),
     DogItem(
-        name = "Carolina Dog",
+        name = "Caroline",
+        location = "South Korea",
+        stars=3,
+        price=120,
+        type = "Carolina Dog",
         desc = "Indigenous to the United States, the Carolina Dog is a rare, primitive dog breed and relatively new to domesticity. They are medium in size, agile, and independent; they’re also known for being very clean dogs.\n" +
             "\n" +
             "The Carolina Dog is also sometimes called the Yellow Dog, the American Dingo, the Dixie Dingo, and the Yaller. They were feral and lived in the Southeastern United States for hundreds of years, and they’re still found in the wild in some parts of Georgia and South Carolina.\n" +
@@ -144,7 +168,11 @@ val dogsList = mutableListOf(
         source = "https://dogtime.com/dog-breeds/carolina-dog"
     ),
     DogItem(
-        name = "Cavalier King Charles Spaniel",
+        name = "Sally",
+        location = "Brazil",
+        stars=2,
+        price=600,
+        type = "Cavalier King Charles Spaniel",
         desc = "Although they’re born to be a companion, the Cavalier King Charles Spaniel dog breed retains the sporty nature of their spaniel ancestors. If they’re not sitting on a lap or getting a belly rub, nothing makes them happier than to flush a bird and then attempt to retrieve it.\n" +
             "\n" +
             "Although these are purebred dogs, you may still find them in shelters and rescues. Remember to adopt! Don’t shop if you want to bring a dog home.\n" +
@@ -164,7 +192,11 @@ val dogsList = mutableListOf(
         source = "https://dogtime.com/dog-breeds/cavalier-king-charles-spaniel#/slide/1"
     ),
     DogItem(
-        name = "Central Asian Shepherd Dog",
+        name = "Johnny",
+        location = "Egypt",
+        stars=1,
+        price=500,
+        type = "Central Asian Shepherd Dog",
         desc = "The Central Asian Shepherd Dog is a big, strong, and independent dog breed. These purebred dogs go by several other names, including Central Asian Ovtcharka, Middle Asian Ovtcharka, and Mid-Asian Shepherd. One of the oldest breeds, these pups genetics can be traced back over 5,000 years.\n" +
             "\n" +
             "Despite their purebred status, you may find these dogs in shelters and breed specific rescues, so remember to adopt! Don’t shop!\n" +
@@ -184,7 +216,11 @@ val dogsList = mutableListOf(
         source = "https://dogtime.com/dog-breeds/central-asian-shepherd-dog#/slide/1"
     ),
     DogItem(
-        name = "Dogo Argentino",
+        name = "Bts",
+        location = "Argentina",
+        stars=3,
+        price=240,
+        type = "Dogo Argentino",
         desc = "The Dogo Argentino, sometimes called the Argentinian Mastiff or the Argentine Dogo, is a strong, athletic, and loyal breed. They can be both fierce hunters and gentle protectors of their humans. They have a high prey drive, a strong will, and, at times, a distrust of strangers and other animals, all of which require an experienced dog owner to handle the breed.\n" +
             "\n" +
             "Dogo Argentino puppies need lots of physical activity and mental stimulation along with patient training; otherwise, they can become bored and destructive. Dogo Argentinos are often used to help with big-game hunting, though they are also trained for police work, search and rescue, military work, and as service dogs.\n" +
@@ -205,7 +241,11 @@ val dogsList = mutableListOf(
         source = "https://dogtime.com/dog-breeds/dogo-argentino#/slide/1"
     ),
     DogItem(
-        name = "Doxiepoo",
+        name = "Gartner",
+        location = "Mexico",
+        stars=5,
+        price=560,
+        type = "Doxiepoo",
         desc = "If you were the type of kid who wasn’t afraid to choose the “mystery” flavor of candy in a bag, a Dachshund Poodle — or Doxiepoo — may be for you. While this mixed breed can have famously endless combinations of traits, they are known for being affectionate, intelligent, and playful.\n" +
             "\n" +
             "The list of names the Doxiepoo is known by is as long as the parent Dachshund: Doodle, Dachdoodle, Doxiedoodle, Doxiepoodle, Dachshunddoodle, and Dachshundpoo. This is one of the most unpredictable pairings among mixed breeds, even within a single litter. This means they often end up in shelters. However, with such winning traits, they are wonderfully adoptable dogs. And, as one of the most affectionate mixed breeds, they’ll fall in love with you before you leave the shelter.\n" +
@@ -225,7 +265,11 @@ val dogsList = mutableListOf(
         source = "https://dogtime.com/dog-breeds/doxiepoo#/slide/1"
     ),
     DogItem(
-        name = "Drentsche Patrijshond",
+        name = "Oliver",
+        location = "Netherlands",
+        stars=4,
+        price=720,
+        type = "Drentsche Patrijshond",
         desc = "The Drentsche Patrijshond is a purebred dog hailing from the Netherlands. Intelligent, loyal, and sensitive, these pups have some of the best qualities of any dog breed.\n" +
             "\n" +
             "Drentsche Patrijshonds go by several other names, including Dutch Partridge Dog and Drent. You may find these beautiful and versatile purebred dogs in your local shelters and breed specific rescues. Remember that it’s always better to adopt and not shop!\n" +

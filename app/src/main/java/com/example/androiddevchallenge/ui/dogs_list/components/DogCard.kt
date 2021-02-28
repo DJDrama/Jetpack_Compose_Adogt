@@ -17,6 +17,7 @@ package com.example.androiddevchallenge.ui.dogs_list.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -35,10 +36,16 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.androiddevchallenge.R
 import com.example.androiddevchallenge.data.model.DogItem
 import com.example.androiddevchallenge.ui.theme.blackAlpha
+import com.example.androiddevchallenge.ui.theme.lightGray
 import com.example.androiddevchallenge.util.loadPictureFromNetwork
 
 @Composable
@@ -58,8 +65,8 @@ fun DogCard(
                 image?.let { img ->
                     Image(
                         bitmap = img.asImageBitmap(),
-                        contentDescription = "Dog Image ${dogItem.name}",
-                        modifier = Modifier.fillMaxWidth().height(200.dp),
+                        contentDescription = "Dog Image ${dogItem.type}",
+                        modifier = Modifier.fillMaxWidth().height(250.dp),
                         contentScale = ContentScale.Crop
                     )
                 }
@@ -68,28 +75,119 @@ fun DogCard(
                     modifier = Modifier.fillMaxWidth().align(Alignment.BottomCenter),
                     color = blackAlpha,
                 ) {
-
-                    val resource =
-                        painterResource(id = R.drawable.ic_baseline_keyboard_arrow_right_24)
-
                     Row(
                         modifier = Modifier.fillMaxWidth()
                             .padding(8.dp),
                     ) {
-                        Text(
-                            text = dogItem.name,
-                            modifier = Modifier.wrapContentWidth(Alignment.Start),
-                            color = Color.White,
-                            style = MaterialTheme.typography.h6
-                        )
                         Image(
-                            painter = resource,
-                            modifier = Modifier.fillMaxWidth().wrapContentWidth(Alignment.End),
+                            painter = painterResource(id = R.drawable.ic_baseline_location_on),
+                            modifier = Modifier.wrapContentWidth().padding(4.dp),
                             contentDescription = "Arrow Right"
                         )
+                        Text(
+                            text = dogItem.location,
+                            modifier = Modifier.align(Alignment.CenterVertically),
+                            color = Color.White,
+                            style = TextStyle(fontSize = 16.sp, fontWeight = FontWeight.Bold)
+                        )
+
                     }
                 }
             }
+            BasicInfo(name = dogItem.name, stars = dogItem.stars, type = dogItem.type)
+            PriceInfo(dogItem.price)
+            DogDescription(dogItem.desc)
+
+        }
+    }
+}
+
+@Composable
+fun BasicInfo(name: String, stars: Int, type: String) {
+    Text(
+        text = name,
+        style = TextStyle(fontSize = 24.sp, fontWeight = FontWeight.Bold),
+        modifier = Modifier.padding(8.dp)
+    )
+
+    Row(
+        modifier = Modifier.padding(start = 8.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        val remainder = 5 - stars
+        repeat(stars) {
+            Image(
+                painter = painterResource(id = R.drawable.ic_baseline_star_12),
+                contentDescription = "Star Filled"
+            )
+        }
+        repeat(remainder) {
+            Image(
+                painter = painterResource(id = R.drawable.ic_baseline_star_border_12),
+                contentDescription = "Star Border"
+            )
+        }
+
+        Text(
+            text = "$stars",
+            style = TextStyle(fontSize = 16.sp, fontWeight = FontWeight.Bold),
+            modifier = Modifier.padding(start = 8.dp)
+        )
+
+        Text(
+            text = "(${type})",
+            color = Color.Gray,
+            modifier = Modifier.padding(start = 8.dp)
+        )
+    }
+}
+
+@Composable
+fun PriceInfo(price: Int) {
+    val discountPrice = (price * 0.8).toInt()
+    Row(
+        modifier = Modifier.fillMaxWidth().padding(end = 8.dp, top = 8.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.End
+    ) {
+        Text(text = "20%~", color = Color.Red, fontWeight = FontWeight.Bold)
+        Text(
+            text = "$$price",
+            textDecoration = TextDecoration.LineThrough,
+            modifier = Modifier.padding(start = 4.dp),
+            color = Color.Gray
+        )
+    }
+
+    Row(
+        modifier = Modifier.fillMaxWidth().padding(horizontal = 8.dp, vertical = 4.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.End
+    ) {
+        Text(
+            text = "$",
+            modifier = Modifier.padding(end = 4.dp)
+        )
+        Text(
+            text = "$discountPrice",
+            style = TextStyle(fontSize = 22.sp, fontWeight = FontWeight.Bold)
+        )
+    }
+}
+
+@Composable
+fun DogDescription(desc: String) {
+    Row(
+        modifier = Modifier.fillMaxWidth().padding(top = 4.dp),
+    ) {
+        Surface(color = lightGray) {
+            Text(
+                text = desc,
+                modifier = Modifier.padding(8.dp),
+                color = Color.Gray,
+                maxLines = 3,
+                overflow = TextOverflow.Ellipsis
+            )
         }
     }
 }

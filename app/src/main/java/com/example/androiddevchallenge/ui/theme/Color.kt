@@ -23,3 +23,4 @@ val purple700 = Color(0xFF3700B3)
 val teal200 = Color(0xFF03DAC5)
 
 val blackAlpha = Color(0xFF70000000)
+val lightGray = Color(0xFFF5F5F5)

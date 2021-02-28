@@ -52,7 +52,7 @@ fun DogDetailScreen(
                 )
             }
         ) {
-            if (dogName == UNKNOWN_DOG_ITEM.name) {
+            if (dogName == UNKNOWN_DOG_ITEM.type) {
                 // Unknown Error
             } else {
                 DogDetailScrollableColumn(viewModel, dogName)

@@ -72,7 +72,7 @@ fun DogDetailScrollableColumn(
                 DogAdaptability(dogItem = dogItem)
 
                 Text(
-                    text = dogItem.name,
+                    text = dogItem.type,
                     modifier = Modifier.fillMaxWidth()
                         .padding(
                             horizontal = 8.dp, vertical = 16.dp
@@ -134,7 +134,7 @@ fun DogDetailScrollableColumn(
                     onClick = {
                     }
                 ) {
-                    Text("Adopt ${dogItem.name}")
+                    Text("Adopt ${dogItem.type}")
                 }
             }
         }
