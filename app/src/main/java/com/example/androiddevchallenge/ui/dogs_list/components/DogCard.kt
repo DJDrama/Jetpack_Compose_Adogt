@@ -155,7 +155,7 @@ fun BasicInfo(name: String, stars: Int, type: String) {
 fun PriceInfo(price: Int) {
     val discountPrice = (price * 0.8).toInt()
     Row(
-        modifier = Modifier.fillMaxWidth().padding(end = 8.dp, top = 8.dp),
+        modifier = Modifier.fillMaxWidth().padding(end = 16.dp, top = 8.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.End
     ) {
@@ -169,7 +169,7 @@ fun PriceInfo(price: Int) {
     }
 
     Row(
-        modifier = Modifier.fillMaxWidth().padding(horizontal = 8.dp, vertical = 4.dp),
+        modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 4.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.End
     ) {

@@ -23,8 +23,16 @@ data class DogItem(
     val type: String,
     val desc: String,
     val image: String,
-    val adaptability: Adaptability,
+    val breedCharacteristics: BreedCharacteristics,
     val source: String
+)
+
+data class BreedCharacteristics(
+    val adaptability: Adaptability,
+    val allAroundFriendliness: AllAroundFriendliness,
+    val healthAndGroomingNeeds: HealthAndGroomingNeeds,
+    val trainability: Trainability,
+    val physicalNeeds: PhysicalNeeds,
 )
 
 data class Adaptability(
@@ -34,5 +42,35 @@ data class Adaptability(
     val toleratesBeingAlone: Int,
     val toleratesColdWeather: Int,
     val toleratesHotWeather: Int
+)
 
+data class AllAroundFriendliness(
+    val affectionateWithFamily: Int,
+    val kidFriendly: Int,
+    val dogFriendly: Int,
+    val friendlyTowardStrangers: Int
+)
+
+data class HealthAndGroomingNeeds(
+    val amountOfShedding: Int,
+    val droolingPotential: Int,
+    val easyToGroom: Int,
+    val generalHealth: Int,
+    val potentialForWeightGain: Int,
+    val size: Int
+)
+
+data class Trainability(
+    val easyToTrain: Int,
+    val intelligence: Int,
+    val potentialForMouthiness: Int,
+    val preyDrive: Int,
+    val tendencyToBarkOrHowl: Int,
+    val wanderlustPotential: Int
+)
+data class PhysicalNeeds(
+    val energyLevel: Int,
+    val intensity: Int,
+    val exerciseNeeds: Int,
+    val potentialForPlayfulness: Int
 )

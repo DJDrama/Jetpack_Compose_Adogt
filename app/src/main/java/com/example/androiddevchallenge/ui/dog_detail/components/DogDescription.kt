@@ -44,14 +44,14 @@ fun DogDescription(dogItem: DogItem) {
         text = dogItem.type,
         modifier = Modifier.fillMaxWidth()
             .padding(
-                top = 8.dp, bottom = 16.dp
+                top = 8.dp, bottom = 16.dp, start = 16.dp
             ),
         style = MaterialTheme.typography.h4
     )
 
     Text(
         text = dogItem.desc,
-        modifier = Modifier.fillMaxWidth().wrapContentHeight(),
+        modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp).wrapContentHeight(),
         style = TextStyle(fontSize = 16.sp)
     )
 

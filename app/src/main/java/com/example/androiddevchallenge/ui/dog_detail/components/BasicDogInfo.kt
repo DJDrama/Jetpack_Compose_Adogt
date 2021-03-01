@@ -53,7 +53,8 @@ fun BasicDogInfo(dogItem: DogItem, scaffoldState: ScaffoldState) {
     val coroutineScope = rememberCoroutineScope()
 
     Row(
-        modifier = Modifier.fillMaxWidth().padding(top = 16.dp, bottom = 8.dp),
+        modifier = Modifier.fillMaxWidth()
+            .padding(top = 16.dp, bottom = 8.dp, start = 16.dp, end = 16.dp),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -85,7 +86,8 @@ fun BasicDogInfo(dogItem: DogItem, scaffoldState: ScaffoldState) {
     }
 
     Row(
-        verticalAlignment = Alignment.CenterVertically
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier.padding(horizontal = 16.dp)
     ) {
         Icon(
             imageVector = Icons.Filled.Pets,
@@ -99,7 +101,7 @@ fun BasicDogInfo(dogItem: DogItem, scaffoldState: ScaffoldState) {
         )
     }
 
-    Row(verticalAlignment = Alignment.Bottom, modifier = Modifier.padding(top = 8.dp)) {
+    Row(verticalAlignment = Alignment.Bottom, modifier = Modifier.padding(top = 8.dp, start = 16.dp)) {
         Icon(
             imageVector = Icons.Filled.Star,
             contentDescription = "Star Filled",

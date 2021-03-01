@@ -16,7 +16,12 @@
 package com.example.androiddevchallenge.data
 
 import com.example.androiddevchallenge.data.model.Adaptability
+import com.example.androiddevchallenge.data.model.AllAroundFriendliness
+import com.example.androiddevchallenge.data.model.BreedCharacteristics
 import com.example.androiddevchallenge.data.model.DogItem
+import com.example.androiddevchallenge.data.model.HealthAndGroomingNeeds
+import com.example.androiddevchallenge.data.model.PhysicalNeeds
+import com.example.androiddevchallenge.data.model.Trainability
 
 val UNKNOWN_DOG_ITEM =
     DogItem(
@@ -27,13 +32,43 @@ val UNKNOWN_DOG_ITEM =
         type = "Unknown",
         desc = "Unknown",
         image = "",
-        Adaptability(
-            adatpsWellToApartmentLiving = 0,
-            goodForNoviceOwners = 0,
-            sensitivityLevel = 0,
-            toleratesBeingAlone = 0,
-            toleratesColdWeather = 0,
-            toleratesHotWeather = 0
+        breedCharacteristics = BreedCharacteristics(
+            adaptability = Adaptability(
+                adatpsWellToApartmentLiving = 0,
+                goodForNoviceOwners = 0,
+                sensitivityLevel = 0,
+                toleratesBeingAlone = 0,
+                toleratesColdWeather = 0,
+                toleratesHotWeather = 0
+            ),
+            allAroundFriendliness = AllAroundFriendliness(
+                affectionateWithFamily = 0,
+                kidFriendly = 0,
+                dogFriendly = 0,
+                friendlyTowardStrangers = 0
+            ),
+            healthAndGroomingNeeds = HealthAndGroomingNeeds(
+                amountOfShedding = 0,
+                droolingPotential = 0,
+                easyToGroom = 0,
+                generalHealth = 0,
+                potentialForWeightGain = 0,
+                size = 0
+            ),
+            trainability = Trainability(
+                easyToTrain = 0,
+                intelligence = 0,
+                potentialForMouthiness = 0,
+                preyDrive = 0,
+                tendencyToBarkOrHowl = 0,
+                wanderlustPotential = 0
+            ),
+            physicalNeeds = PhysicalNeeds(
+                energyLevel = 0,
+                intensity = 0,
+                exerciseNeeds = 0,
+                potentialForPlayfulness = 0
+            )
         ),
         source = "https://www.google.com"
     )
@@ -53,13 +88,43 @@ val dogsList = mutableListOf(
             "\n" +
             "See below for all mixed dog breed traits and facts about Afadors!",
         image = "https://www.dogtime.com/assets/uploads/2019/08/afador-mixed-dog-breed-pictures-1-1442x1328.jpg",
-        Adaptability(
-            adatpsWellToApartmentLiving = 1,
-            goodForNoviceOwners = 1,
-            sensitivityLevel = 3,
-            toleratesBeingAlone = 3,
-            toleratesColdWeather = 4,
-            toleratesHotWeather = 1
+        breedCharacteristics = BreedCharacteristics(
+            adaptability = Adaptability(
+                adatpsWellToApartmentLiving = 1,
+                goodForNoviceOwners = 1,
+                sensitivityLevel = 3,
+                toleratesBeingAlone = 3,
+                toleratesColdWeather = 4,
+                toleratesHotWeather = 1
+            ),
+            allAroundFriendliness = AllAroundFriendliness(
+                affectionateWithFamily = 4,
+                kidFriendly = 2,
+                dogFriendly = 3,
+                friendlyTowardStrangers = 1
+            ),
+            healthAndGroomingNeeds = HealthAndGroomingNeeds(
+                amountOfShedding = 4,
+                droolingPotential = 3,
+                easyToGroom = 2,
+                generalHealth = 3,
+                potentialForWeightGain = 4,
+                size = 4
+            ),
+            trainability = Trainability(
+                easyToTrain = 1,
+                intelligence = 5,
+                potentialForMouthiness = 4,
+                preyDrive = 4,
+                tendencyToBarkOrHowl = 4,
+                wanderlustPotential = 4
+            ),
+            physicalNeeds = PhysicalNeeds(
+                energyLevel = 4,
+                intensity = 4,
+                exerciseNeeds = 4,
+                potentialForPlayfulness = 3
+            )
         ),
         source = "https://dogtime.com/dog-breeds/afador"
     ),
@@ -79,13 +144,43 @@ val dogsList = mutableListOf(
             "\n" +
             "See below for all mixed dog breed traits and facts about Affenhuahuas!",
         image = "https://www.dogtime.com/assets/uploads/2020/02/affenhuahua-mixed-dog-breed-pictures-1-1442x960.jpg",
-        Adaptability(
-            adatpsWellToApartmentLiving = 4,
-            goodForNoviceOwners = 4,
-            sensitivityLevel = 4,
-            toleratesBeingAlone = 1,
-            toleratesColdWeather = 2,
-            toleratesHotWeather = 3
+        breedCharacteristics = BreedCharacteristics(
+            adaptability = Adaptability(
+                adatpsWellToApartmentLiving = 4,
+                goodForNoviceOwners = 4,
+                sensitivityLevel = 4,
+                toleratesBeingAlone = 1,
+                toleratesColdWeather = 2,
+                toleratesHotWeather = 3
+            ),
+            allAroundFriendliness = AllAroundFriendliness(
+                affectionateWithFamily = 4,
+                kidFriendly = 3,
+                dogFriendly = 2,
+                friendlyTowardStrangers = 2
+            ),
+            healthAndGroomingNeeds = HealthAndGroomingNeeds(
+                amountOfShedding = 2,
+                droolingPotential = 1,
+                easyToGroom = 4,
+                generalHealth = 4,
+                potentialForWeightGain = 5,
+                size = 1
+            ),
+            trainability = Trainability(
+                easyToTrain = 3,
+                intelligence = 3,
+                potentialForMouthiness = 4,
+                preyDrive = 2,
+                tendencyToBarkOrHowl = 4,
+                wanderlustPotential = 2
+            ),
+            physicalNeeds = PhysicalNeeds(
+                energyLevel = 4,
+                intensity = 3,
+                exerciseNeeds = 3,
+                potentialForPlayfulness = 3
+            )
         ),
         source = "https://dogtime.com/dog-breeds/affenhuahua"
     ),
@@ -103,13 +198,43 @@ val dogsList = mutableListOf(
             "\n" +
             "See below for complete list of dog breed traits and facts about Affenpinschers!",
         image = "https://dogtime.com/assets/uploads/gallery/affenpinscher-dog-breed-pictures/10-floorhappy.jpg",
-        Adaptability(
-            adatpsWellToApartmentLiving = 4,
-            goodForNoviceOwners = 4,
-            sensitivityLevel = 4,
-            toleratesBeingAlone = 1,
-            toleratesColdWeather = 2,
-            toleratesHotWeather = 3
+        breedCharacteristics = BreedCharacteristics(
+            adaptability = Adaptability(
+                adatpsWellToApartmentLiving = 4,
+                goodForNoviceOwners = 4,
+                sensitivityLevel = 4,
+                toleratesBeingAlone = 1,
+                toleratesColdWeather = 2,
+                toleratesHotWeather = 3
+            ),
+            allAroundFriendliness = AllAroundFriendliness(
+                affectionateWithFamily = 5,
+                kidFriendly = 1,
+                dogFriendly = 4,
+                friendlyTowardStrangers = 3
+            ),
+            healthAndGroomingNeeds = HealthAndGroomingNeeds(
+                amountOfShedding = 1,
+                droolingPotential = 1,
+                easyToGroom = 3,
+                generalHealth = 4,
+                potentialForWeightGain = 3,
+                size = 1
+            ),
+            trainability = Trainability(
+                easyToTrain = 2,
+                intelligence = 4,
+                potentialForMouthiness = 4,
+                preyDrive = 3,
+                tendencyToBarkOrHowl = 2,
+                wanderlustPotential = 2
+            ),
+            physicalNeeds = PhysicalNeeds(
+                energyLevel = 4,
+                intensity = 3,
+                exerciseNeeds = 3,
+                potentialForPlayfulness = 4
+            )
         ),
         source = "https://dogtime.com/dog-breeds/Affenpinscher"
     ),
@@ -129,13 +254,43 @@ val dogsList = mutableListOf(
             "\n" +
             "See below for complete list of Basset Hound dog breed facts and characteristics!",
         image = "https://dogtime.com/assets/uploads/gallery/basset-hound-dog-breed-pictures/6-face2.jpg",
-        Adaptability(
-            adatpsWellToApartmentLiving = 4,
-            goodForNoviceOwners = 3,
-            sensitivityLevel = 4,
-            toleratesBeingAlone = 1,
-            toleratesColdWeather = 2,
-            toleratesHotWeather = 4
+        breedCharacteristics = BreedCharacteristics(
+            adaptability = Adaptability(
+                adatpsWellToApartmentLiving = 4,
+                goodForNoviceOwners = 3,
+                sensitivityLevel = 4,
+                toleratesBeingAlone = 1,
+                toleratesColdWeather = 2,
+                toleratesHotWeather = 4
+            ),
+            allAroundFriendliness = AllAroundFriendliness(
+                affectionateWithFamily = 5,
+                kidFriendly = 5,
+                dogFriendly = 5,
+                friendlyTowardStrangers = 5
+            ),
+            healthAndGroomingNeeds = HealthAndGroomingNeeds(
+                amountOfShedding = 4,
+                droolingPotential = 4,
+                easyToGroom = 5,
+                generalHealth = 1,
+                potentialForWeightGain = 5,
+                size = 3
+            ),
+            trainability = Trainability(
+                easyToTrain = 2,
+                intelligence = 4,
+                potentialForMouthiness = 3,
+                preyDrive = 5,
+                tendencyToBarkOrHowl = 4,
+                wanderlustPotential = 5
+            ),
+            physicalNeeds = PhysicalNeeds(
+                energyLevel = 2,
+                intensity = 2,
+                exerciseNeeds = 2,
+                potentialForPlayfulness = 2
+            )
         ),
         source = "https://dogtime.com/dog-breeds/basset-hound"
     ),
@@ -157,13 +312,43 @@ val dogsList = mutableListOf(
             "\n" +
             "See below for complete list of Carolina Dog breed facts and traits!",
         image = "https://dogtime.com/assets/uploads/gallery/carolina-dog-breed-pictures/carolina-dog-breed-pictures-4.jpg",
-        Adaptability(
-            adatpsWellToApartmentLiving = 2,
-            goodForNoviceOwners = 2,
-            sensitivityLevel = 2,
-            toleratesBeingAlone = 1,
-            toleratesColdWeather = 4,
-            toleratesHotWeather = 4
+        breedCharacteristics = BreedCharacteristics(
+            adaptability = Adaptability(
+                adatpsWellToApartmentLiving = 2,
+                goodForNoviceOwners = 2,
+                sensitivityLevel = 2,
+                toleratesBeingAlone = 1,
+                toleratesColdWeather = 4,
+                toleratesHotWeather = 4
+            ),
+            allAroundFriendliness = AllAroundFriendliness(
+                affectionateWithFamily = 2,
+                kidFriendly = 3,
+                dogFriendly = 5,
+                friendlyTowardStrangers = 2
+            ),
+            healthAndGroomingNeeds = HealthAndGroomingNeeds(
+                amountOfShedding = 4,
+                droolingPotential = 2,
+                easyToGroom = 4,
+                generalHealth = 5,
+                potentialForWeightGain = 4,
+                size = 3
+            ),
+            trainability = Trainability(
+                easyToTrain = 2,
+                intelligence = 4,
+                potentialForMouthiness = 2,
+                preyDrive = 5,
+                tendencyToBarkOrHowl = 1,
+                wanderlustPotential = 5
+            ),
+            physicalNeeds = PhysicalNeeds(
+                energyLevel = 4,
+                intensity = 5,
+                exerciseNeeds = 4,
+                potentialForPlayfulness = 3
+            )
         ),
         source = "https://dogtime.com/dog-breeds/carolina-dog"
     ),
@@ -181,13 +366,43 @@ val dogsList = mutableListOf(
             "\n" +
             "See below for complete list of Cavalier King Charles Spaniel characteristics!",
         image = "https://dogtime.com/assets/uploads/gallery/cavalier-king-charles-spaniel-dog-breed-pictures/6-sittingforward.jpg",
-        Adaptability(
-            adatpsWellToApartmentLiving = 5,
-            goodForNoviceOwners = 5,
-            sensitivityLevel = 5,
-            toleratesBeingAlone = 1,
-            toleratesColdWeather = 3,
-            toleratesHotWeather = 2
+        breedCharacteristics = BreedCharacteristics(
+            adaptability = Adaptability(
+                adatpsWellToApartmentLiving = 5,
+                goodForNoviceOwners = 5,
+                sensitivityLevel = 5,
+                toleratesBeingAlone = 1,
+                toleratesColdWeather = 3,
+                toleratesHotWeather = 2
+            ),
+            allAroundFriendliness = AllAroundFriendliness(
+                affectionateWithFamily = 5,
+                kidFriendly = 5,
+                dogFriendly = 5,
+                friendlyTowardStrangers = 5
+            ),
+            healthAndGroomingNeeds = HealthAndGroomingNeeds(
+                amountOfShedding = 3,
+                droolingPotential = 1,
+                easyToGroom = 4,
+                generalHealth = 4,
+                potentialForWeightGain = 4,
+                size = 2
+            ),
+            trainability = Trainability(
+                easyToTrain = 4,
+                intelligence = 4,
+                potentialForMouthiness = 3,
+                preyDrive = 3,
+                tendencyToBarkOrHowl = 2,
+                wanderlustPotential = 2
+            ),
+            physicalNeeds = PhysicalNeeds(
+                energyLevel = 3,
+                intensity = 2,
+                exerciseNeeds = 4,
+                potentialForPlayfulness = 5
+            )
         ),
         source = "https://dogtime.com/dog-breeds/cavalier-king-charles-spaniel#/slide/1"
     ),
@@ -205,13 +420,43 @@ val dogsList = mutableListOf(
             "\n" +
             "See below for complete list of dog breed traits and facts about Central Asian Shepherd Dogs!",
         image = "https://dogtime.com/assets/uploads/gallery/central-asian-shepherd-dog-breed-pictures/central-asian-shepherd-dog-breed-pictures-3.jpg",
-        Adaptability(
-            adatpsWellToApartmentLiving = 3,
-            goodForNoviceOwners = 1,
-            sensitivityLevel = 1,
-            toleratesBeingAlone = 4,
-            toleratesColdWeather = 2,
-            toleratesHotWeather = 2
+        breedCharacteristics = BreedCharacteristics(
+            adaptability = Adaptability(
+                adatpsWellToApartmentLiving = 1,
+                goodForNoviceOwners = 1,
+                sensitivityLevel = 4,
+                toleratesBeingAlone = 2,
+                toleratesColdWeather = 4,
+                toleratesHotWeather = 2
+            ),
+            allAroundFriendliness = AllAroundFriendliness(
+                affectionateWithFamily = 3,
+                kidFriendly = 3,
+                dogFriendly = 4,
+                friendlyTowardStrangers = 2
+            ),
+            healthAndGroomingNeeds = HealthAndGroomingNeeds(
+                amountOfShedding = 4,
+                droolingPotential = 5,
+                easyToGroom = 5,
+                generalHealth = 5,
+                potentialForWeightGain = 3,
+                size = 4
+            ),
+            trainability = Trainability(
+                easyToTrain = 2,
+                intelligence = 5,
+                potentialForMouthiness = 2,
+                preyDrive = 1,
+                tendencyToBarkOrHowl = 3,
+                wanderlustPotential = 2
+            ),
+            physicalNeeds = PhysicalNeeds(
+                energyLevel = 3,
+                intensity = 3,
+                exerciseNeeds = 4,
+                potentialForPlayfulness = 2
+            )
         ),
         source = "https://dogtime.com/dog-breeds/central-asian-shepherd-dog#/slide/1"
     ),
@@ -230,13 +475,43 @@ val dogsList = mutableListOf(
             "\n" +
             "See below for full list of dog breed traits and facts about Dogo Argentinos!",
         image = "https://dogtime.com/assets/uploads/gallery/dogo-argentino-breed-pictures/dogo-argentino-breed-pictures-1.jpg",
-        Adaptability(
-            adatpsWellToApartmentLiving = 1,
-            goodForNoviceOwners = 1,
-            sensitivityLevel = 3,
-            toleratesBeingAlone = 2,
-            toleratesColdWeather = 2,
-            toleratesHotWeather = 4
+        breedCharacteristics = BreedCharacteristics(
+            adaptability = Adaptability(
+                adatpsWellToApartmentLiving = 1,
+                goodForNoviceOwners = 1,
+                sensitivityLevel = 3,
+                toleratesBeingAlone = 2,
+                toleratesColdWeather = 2,
+                toleratesHotWeather = 4
+            ),
+            allAroundFriendliness = AllAroundFriendliness(
+                affectionateWithFamily = 4,
+                kidFriendly = 2,
+                dogFriendly = 2,
+                friendlyTowardStrangers = 2
+            ),
+            healthAndGroomingNeeds = HealthAndGroomingNeeds(
+                amountOfShedding = 1,
+                droolingPotential = 3,
+                easyToGroom = 4,
+                generalHealth = 3,
+                potentialForWeightGain = 2,
+                size = 4
+            ),
+            trainability = Trainability(
+                easyToTrain = 2,
+                intelligence = 3,
+                potentialForMouthiness = 2,
+                preyDrive = 5,
+                tendencyToBarkOrHowl = 2,
+                wanderlustPotential = 4
+            ),
+            physicalNeeds = PhysicalNeeds(
+                energyLevel = 4,
+                intensity = 4,
+                exerciseNeeds = 4,
+                potentialForPlayfulness = 3
+            )
         ),
         source = "https://dogtime.com/dog-breeds/dogo-argentino#/slide/1"
     ),
@@ -254,13 +529,43 @@ val dogsList = mutableListOf(
             "\n" +
             "See below for all Doxiepoo facts and mixed dog breed characteristics!",
         image = "https://dogtime.com/assets/uploads/gallery/doxiepoo-mixed-dog-breed-pictures/doxiepoo-mixed-dog-breed-pictures-2.jpg",
-        Adaptability(
-            adatpsWellToApartmentLiving = 5,
-            goodForNoviceOwners = 3,
-            sensitivityLevel = 4,
-            toleratesBeingAlone = 2,
-            toleratesColdWeather = 3,
-            toleratesHotWeather = 3
+        breedCharacteristics = BreedCharacteristics(
+            adaptability = Adaptability(
+                adatpsWellToApartmentLiving = 5,
+                goodForNoviceOwners = 3,
+                sensitivityLevel = 4,
+                toleratesBeingAlone = 2,
+                toleratesColdWeather = 3,
+                toleratesHotWeather = 3
+            ),
+            allAroundFriendliness = AllAroundFriendliness(
+                affectionateWithFamily = 5,
+                kidFriendly = 2,
+                dogFriendly = 2,
+                friendlyTowardStrangers = 3
+            ),
+            healthAndGroomingNeeds = HealthAndGroomingNeeds(
+                amountOfShedding = 3,
+                droolingPotential = 0,
+                easyToGroom = 3,
+                generalHealth = 2,
+                potentialForWeightGain = 4,
+                size = 2
+            ),
+            trainability = Trainability(
+                easyToTrain = 3,
+                intelligence = 5,
+                potentialForMouthiness = 3,
+                preyDrive = 4,
+                tendencyToBarkOrHowl = 5,
+                wanderlustPotential = 4
+            ),
+            physicalNeeds = PhysicalNeeds(
+                energyLevel = 4,
+                intensity = 4,
+                exerciseNeeds = 4,
+                potentialForPlayfulness = 5
+            )
         ),
         source = "https://dogtime.com/dog-breeds/doxiepoo#/slide/1"
     ),
@@ -278,15 +583,44 @@ val dogsList = mutableListOf(
             "\n" +
             "See below for all Drentsche Patrijshond facts and dog breed characteristics!",
         image = "https://dogtime.com/assets/uploads/gallery/drentsche-patrijshond-dog-breed-pictures/drentsche-patrijshond-dog-breed-pictures-5.jpg",
-        Adaptability(
-            adatpsWellToApartmentLiving = 3,
-            goodForNoviceOwners = 2,
-            sensitivityLevel = 4,
-            toleratesBeingAlone = 3,
-            toleratesColdWeather = 4,
-            toleratesHotWeather = 3
+        breedCharacteristics = BreedCharacteristics(
+            adaptability = Adaptability(
+                adatpsWellToApartmentLiving = 3,
+                goodForNoviceOwners = 2,
+                sensitivityLevel = 4,
+                toleratesBeingAlone = 3,
+                toleratesColdWeather = 4,
+                toleratesHotWeather = 3
+            ),
+            allAroundFriendliness = AllAroundFriendliness(
+                affectionateWithFamily = 5,
+                kidFriendly = 4,
+                dogFriendly = 4,
+                friendlyTowardStrangers = 3
+            ),
+            healthAndGroomingNeeds = HealthAndGroomingNeeds(
+                amountOfShedding = 4,
+                droolingPotential = 3,
+                easyToGroom = 3,
+                generalHealth = 4,
+                potentialForWeightGain = 2,
+                size = 3
+            ),
+            trainability = Trainability(
+                easyToTrain = 2,
+                intelligence = 4,
+                potentialForMouthiness = 3,
+                preyDrive = 4,
+                tendencyToBarkOrHowl = 2,
+                wanderlustPotential = 1
+            ),
+            physicalNeeds = PhysicalNeeds(
+                energyLevel = 5,
+                intensity = 3,
+                exerciseNeeds = 4,
+                potentialForPlayfulness = 4
+            )
         ),
         source = "https://dogtime.com/dog-breeds/drentsche-patrijshond#/slide/1"
     ),
-
 )

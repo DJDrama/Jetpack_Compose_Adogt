@@ -56,7 +56,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.example.androiddevchallenge.data.model.DogItem
 import com.example.androiddevchallenge.ui.dog_detail.components.BasicDogInfo
-import com.example.androiddevchallenge.ui.dog_detail.components.DogAdaptability
+import com.example.androiddevchallenge.ui.dog_detail.components.DogBreedCharacteristics
 import com.example.androiddevchallenge.ui.dog_detail.components.DogDescription
 import com.example.androiddevchallenge.ui.theme.MyTheme
 import com.example.androiddevchallenge.util.loadPictureFromNetwork
@@ -133,11 +133,11 @@ fun ScrollSection(dogItem: DogItem, scaffoldState: ScaffoldState) {
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(topStart = 32.dp, topEnd = 32.dp)
     ) {
-        Column(modifier = Modifier.padding(horizontal = 16.dp)) {
+        Column {
             BasicDogInfo(dogItem = dogItem, scaffoldState = scaffoldState)
-            Divider(modifier = Modifier.padding(vertical = 8.dp))
-            DogAdaptability(dogItem = dogItem)
-            Divider(modifier = Modifier.padding(vertical = 8.dp))
+            Divider(modifier = Modifier.padding(vertical = 8.dp, horizontal = 16.dp))
+            DogBreedCharacteristics(dogItem = dogItem)
+            Divider(modifier = Modifier.padding(vertical = 8.dp, horizontal = 16.dp))
             DogDescription(dogItem = dogItem)
             Button(
                 modifier = Modifier.align(Alignment.CenterHorizontally).padding(bottom = 32.dp),
