@@ -76,10 +76,10 @@ fun DogDescription(dogItem: DogItem) {
 
     Row(
         modifier = Modifier.fillMaxWidth().padding(
-            vertical = 16.dp
+            vertical = 16.dp, horizontal = 16.dp
         )
     ) {
-        Text("Source: ")
+        Text(text="Source: ")
         Spacer(modifier = Modifier.size(4.dp))
         ClickableText(
             text = sourceText,
