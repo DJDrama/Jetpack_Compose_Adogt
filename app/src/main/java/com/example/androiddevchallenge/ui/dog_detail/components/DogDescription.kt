@@ -79,7 +79,7 @@ fun DogDescription(dogItem: DogItem) {
             vertical = 16.dp, horizontal = 16.dp
         )
     ) {
-        Text(text="Source: ")
+        Text(text = "Source: ")
         Spacer(modifier = Modifier.size(4.dp))
         ClickableText(
             text = sourceText,
