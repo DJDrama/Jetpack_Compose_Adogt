@@ -32,9 +32,9 @@ import androidx.compose.material.LinearProgressIndicator
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -50,7 +50,6 @@ import com.example.androiddevchallenge.data.model.PhysicalNeeds
 import com.example.androiddevchallenge.data.model.Trainability
 import com.example.androiddevchallenge.ui.components.Pager
 import com.example.androiddevchallenge.ui.components.PagerState
-import kotlinx.coroutines.launch
 
 @Composable
 fun DogBreedCharacteristics(dogItem: DogItem) {
@@ -282,15 +281,14 @@ fun DogLinearProgressIndicator(level: Int, isSelected: Boolean) {
     val xTarget = (level / 10.toFloat()) * 2
 
     val xStart = remember { mutableStateOf(Animatable(0f)) }
-    val coroutineScope = rememberCoroutineScope()
     if (!isSelected)
         xStart.value = Animatable(0f)
 
-    coroutineScope.launch {
+    LaunchedEffect(isSelected) {
         xStart.value.animateTo(
             targetValue = xTarget,
             animationSpec = tween(
-                durationMillis = 150,
+                durationMillis = 1500,
                 easing = FastOutSlowInEasing
             )
         )
