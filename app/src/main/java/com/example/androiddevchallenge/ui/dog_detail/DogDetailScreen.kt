@@ -30,8 +30,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Button
+import androidx.compose.material.Card
 import androidx.compose.material.Divider
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
@@ -70,7 +72,7 @@ fun DogDetailScreen(
     MyTheme(
         darkTheme = darkTheme
     ) {
-        Box(modifier = Modifier.fillMaxSize().background(Color.White)) {
+        Box(modifier = Modifier.fillMaxSize()) {
             BoxTopSection(image)
             TopSectionOverlay(scrollState = scrollState)
             BottomScrollableContent(scrollState = scrollState, dogItem = dogItem)
@@ -108,28 +110,32 @@ fun TopSectionOverlay(scrollState: ScrollState) {
 @Composable
 fun BottomScrollableContent(scrollState: ScrollState, dogItem: DogItem) {
     Column(modifier = Modifier.verticalScroll(state = scrollState)) {
-        Spacer(modifier = Modifier.height(350.dp))
-        Column(modifier = Modifier.background(Color.White).padding(horizontal = 8.dp)) {
-            ScrollSection(dogItem = dogItem)
+        Spacer(modifier = Modifier.height(320.dp))
+        ScrollSection(dogItem = dogItem)
+    }
+}
+
+@Composable
+fun ScrollSection(dogItem: DogItem) {
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(topStart = 32.dp, topEnd = 32.dp)
+    ) {
+        Column(modifier = Modifier.padding(horizontal = 16.dp)) {
+            BasicDogInfo(dogItem = dogItem)
+            Divider(modifier = Modifier.padding(vertical = 8.dp))
+            DogAdaptability(dogItem = dogItem)
+            Divider(modifier = Modifier.padding(vertical = 8.dp))
+            DogDescription(dogItem = dogItem)
             Button(
-                modifier = Modifier.align(Alignment.CenterHorizontally),
+                modifier = Modifier.align(Alignment.CenterHorizontally).padding(bottom = 32.dp),
                 onClick = {
                 }
             ) {
                 Text("Adopt ${dogItem.name}")
             }
         }
-        Spacer(modifier = Modifier.height(32.dp))
     }
-}
-
-@Composable
-fun ScrollSection(dogItem: DogItem) {
-    BasicDogInfo(dogItem = dogItem)
-    Divider(modifier = Modifier.padding(vertical = 8.dp))
-    DogAdaptability(dogItem = dogItem)
-    Divider(modifier = Modifier.padding(vertical = 8.dp))
-    DogDescription(dogItem = dogItem)
 }
 
 @Composable
@@ -140,8 +146,10 @@ fun AnimatedToolBar(name: String, scrollState: ScrollState, upPress: () -> Unit)
         modifier = Modifier
             .fillMaxWidth()
             .background(
-                if (Dp(scrollState.value.toFloat()) < 800.dp)
-                    Color.Transparent else Color.White
+                if (Dp(scrollState.value.toFloat()) < 770.dp)
+                    Color.Transparent
+                else
+                    MaterialTheme.colors.surface
             )
             .padding(horizontal = 8.dp, vertical = 4.dp)
     ) {
@@ -149,11 +157,18 @@ fun AnimatedToolBar(name: String, scrollState: ScrollState, upPress: () -> Unit)
             Icon(
                 imageVector = Icons.Filled.ArrowBack,
                 contentDescription = "Back to List",
+                tint = if (Dp(scrollState.value.toFloat()) < 770.dp)
+                    Color.White
+                else
+                    MaterialTheme.colors.onSurface
             )
         }
         Text(
             text = name,
-            color = Color.Black,
+            color =
+            if (Dp(scrollState.value.toFloat()) < 770.dp)
+                Color.White
+            else MaterialTheme.colors.onSurface,
             modifier = Modifier
                 .padding(16.dp)
                 .alpha(
@@ -165,6 +180,10 @@ fun AnimatedToolBar(name: String, scrollState: ScrollState, upPress: () -> Unit)
         Icon(
             imageVector = Icons.Filled.Share,
             contentDescription = "Share",
+            tint = if (Dp(scrollState.value.toFloat()) < 800.dp)
+                Color.White
+            else
+                MaterialTheme.colors.onSurface
         )
     }
 }

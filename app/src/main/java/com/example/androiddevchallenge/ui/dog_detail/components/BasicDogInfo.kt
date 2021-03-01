@@ -41,7 +41,7 @@ import com.example.androiddevchallenge.ui.theme.orangeYellow
 @Composable
 fun BasicDogInfo(dogItem: DogItem) {
     Row(
-        modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp),
+        modifier = Modifier.fillMaxWidth().padding(top = 16.dp, bottom = 8.dp),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
