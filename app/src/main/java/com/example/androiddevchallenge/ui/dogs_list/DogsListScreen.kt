@@ -29,6 +29,7 @@ import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.outlined.MoreVert
+import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
@@ -48,11 +49,13 @@ fun DogsListScreen(
     darkTheme: Boolean,
     onToggleTheme: () -> Unit
 ) {
+    val scaffoldState = rememberScaffoldState()
     val isLoading = viewModel.loading.value
     val dogs = viewModel.dogs.value
 
     MyTheme(
-        darkTheme = darkTheme
+        darkTheme = darkTheme,
+        scaffoldState = scaffoldState
     ) {
         Scaffold(
             topBar = {

@@ -38,10 +38,13 @@ import androidx.compose.material.Divider
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Scaffold
+import androidx.compose.material.ScaffoldState
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Share
+import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -65,18 +68,27 @@ fun DogDetailScreen(
     upPress: () -> Unit,
     darkTheme: Boolean
 ) {
+    val scaffoldState = rememberScaffoldState()
     val scrollState = rememberScrollState(0)
     val dogItem = viewModel.getDogItem(dogName = dogName)
     val image = loadPictureFromNetwork(url = dogItem.image).value
 
     MyTheme(
-        darkTheme = darkTheme
+        darkTheme = darkTheme,
+        scaffoldState = scaffoldState
     ) {
-        Box(modifier = Modifier.fillMaxSize()) {
-            BoxTopSection(image)
-            TopSectionOverlay(scrollState = scrollState)
-            BottomScrollableContent(scrollState = scrollState, dogItem = dogItem)
-            AnimatedToolBar(name = dogItem.name, scrollState = scrollState, upPress = upPress)
+        Scaffold(
+            scaffoldState = scaffoldState,
+            snackbarHost = {
+                scaffoldState.snackbarHostState
+            }
+        ) {
+            Box(modifier = Modifier.fillMaxSize()) {
+                BoxTopSection(image)
+                TopSectionOverlay(scrollState = scrollState)
+                BottomScrollableContent(scrollState = scrollState, dogItem = dogItem, scaffoldState = scaffoldState)
+                AnimatedToolBar(name = dogItem.name, scrollState = scrollState, upPress = upPress)
+            }
         }
     }
 }
@@ -108,21 +120,21 @@ fun TopSectionOverlay(scrollState: ScrollState) {
 }
 
 @Composable
-fun BottomScrollableContent(scrollState: ScrollState, dogItem: DogItem) {
+fun BottomScrollableContent(scrollState: ScrollState, dogItem: DogItem, scaffoldState: ScaffoldState) {
     Column(modifier = Modifier.verticalScroll(state = scrollState)) {
         Spacer(modifier = Modifier.height(320.dp))
-        ScrollSection(dogItem = dogItem)
+        ScrollSection(dogItem = dogItem, scaffoldState = scaffoldState)
     }
 }
 
 @Composable
-fun ScrollSection(dogItem: DogItem) {
+fun ScrollSection(dogItem: DogItem, scaffoldState: ScaffoldState) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(topStart = 32.dp, topEnd = 32.dp)
     ) {
         Column(modifier = Modifier.padding(horizontal = 16.dp)) {
-            BasicDogInfo(dogItem = dogItem)
+            BasicDogInfo(dogItem = dogItem, scaffoldState = scaffoldState)
             Divider(modifier = Modifier.padding(vertical = 8.dp))
             DogAdaptability(dogItem = dogItem)
             Divider(modifier = Modifier.padding(vertical = 8.dp))

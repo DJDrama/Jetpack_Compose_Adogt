@@ -16,10 +16,16 @@
 package com.example.androiddevchallenge.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.ScaffoldState
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import com.example.androiddevchallenge.ui.components.ShowSnackBar
 
 private val DarkColorPalette = darkColors(
     primary = purple200,
@@ -33,18 +39,22 @@ private val LightColorPalette = lightColors(
     primaryVariant = purple700,
     secondary = teal200
 
-        /* Other default colors to override
-    background = Color.White,
-    surface = Color.White,
-    onPrimary = Color.White,
-    onSecondary = Color.Black,
-    onBackground = Color.Black,
-    onSurface = Color.Black,
-    */
+    /* Other default colors to override
+background = Color.White,
+surface = Color.White,
+onPrimary = Color.White,
+onSecondary = Color.Black,
+onBackground = Color.Black,
+onSurface = Color.Black,
+*/
 )
 
 @Composable
-fun MyTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
+fun MyTheme(
+    darkTheme: Boolean = isSystemInDarkTheme(),
+    scaffoldState: ScaffoldState,
+    content: @Composable () -> Unit
+) {
     val colors = if (darkTheme) {
         DarkColorPalette
     } else {
@@ -55,6 +65,14 @@ fun MyTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () 
         colors = colors,
         typography = typography,
         shapes = shapes,
-        content = content
-    )
+    ) {
+        Box(modifier = Modifier.fillMaxSize()) {
+            content()
+            ShowSnackBar(
+                snackBarHostState = scaffoldState.snackbarHostState,
+                onDismiss = { scaffoldState.snackbarHostState.currentSnackbarData?.dismiss() },
+                modifier = Modifier.align(Alignment.BottomCenter)
+            )
+        }
+    }
 }
